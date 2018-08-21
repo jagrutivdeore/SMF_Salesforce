@@ -77,14 +77,10 @@ public class  AdvanceReturnNotifivation implements Schedulable{
       i++;
       i--;
       i++;
-      i--;
-      i--;
-      i++;
-      i--;
-      i--;
+      i--; i++;
       i--;
       i++;
       i--;
-      i++;
       } 
+
 }
