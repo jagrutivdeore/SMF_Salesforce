@@ -1,0 +1,311 @@
+<apex:page sidebar="false" cache="false" showHeader="false" standardStylesheets="false" controller="MTTrainingclone" docType="html-5.0" >
+  
+     <apex:stylesheet value="{!URLFOR($Resource.newtraing,'MV_Pravin/bootstrap.css')}"/>
+ <apex:form >
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+  <script>
+   $(function() {
+       $("#myModal").modal();
+    });
+    
+   
+  </script>
+  <style>
+      background-color:#FF4081;
+  </style>
+</head>
+<body>
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content row">
+                        <div class="modal-header custom-modal-header">
+                   
+                    </div>
+                      
+                      <div class="modal-body">
+                        <div class="row">
+                                    <div class="col-md-12 col-sm-12">
+                                      <div class="input-group">
+                                        <span class="input-group-addon">Taluka: </span>
+                                        <apex:inputField value="{!mttrain.MT_Taluka__c}" styleClass="form-control input-lg" />
+                                      </div>
+                                    </div>
+                                </div>
+                                <br/>
+                                <div class="row">
+                                    <div class="col-md-12 col-sm-12">
+                                      <div class="input-group">
+                                        <span class="input-group-addon">Batch No: </span>
+                                        <apex:inputfield value="{!mttrain.Batch_No__c}"  styleClass="form-control input-lg"/>                                         
+                                      </div>
+                                    </div>
+                                </div>
+                                <br/>                                
+                                    <div class="row">
+                                        <div class="col-md-2 col-sm-2" style="float:left;">
+                                            <apex:inputField value="{!mttrain.MT1__c}" style="width:30px;height:30px;"/>
+                                        </div>
+                                        <div class="col-md-10 col-sm-10">
+                                            १. मूल्यवर्धन शिक्षक कार्यशाळेमध्ये प्रशिक्षण देण्यासाठी लागणारे सत्रवार प्रशिक्षण मोड्यूल्स समजून घेऊन सराव केला.
+                                        </div>
+                                    </div>                                
+                                <hr/>
+                                                                
+                                <div class="row">
+                                    <div class="col-md-2 col-sm-2" style="float:left;">
+                                        <apex:inputField value="{!mttrain.MT2__c}" style="width:30px;height:30px;"/>
+                                    </div>
+                                    <div class="col-md-10 col-sm-10">
+                                        २. मूल्यवर्धन प्रेरक कार्यशाळेचे प्रशिक्षण देण्यासाठी लागणारे सत्रवार प्रशिक्षण मोड्यूल्स समजून घेऊन सराव केला.
+                                    </div>
+                                </div>
+                                <hr/>                                
+                              
+                                <div class="row">
+                                    <div class="col-md-2 col-sm-2" style="float:left;">
+                                        <apex:inputField value="{!mttrain.MT3__c}" style="width:30px;height:30px;"/>
+                                    </div>
+                                    <div class="col-md-10 col-sm-10">
+                                        ३. प्रशिक्षणासाठी आवश्यक असलेले E-learning मोड्यूल समजून घेतले.
+                                    </div>
+                                </div>
+                                <hr/>                                       
+                                <div class="row">
+                                    <div class="col-md-2 col-sm-2" style="float:left;">
+                                        <apex:inputField value="{!mttrain.MT4__c}" style="width:30px;height:30px;"/>
+                                    </div>
+                                    <div class="col-md-10 col-sm-10">
+                                        ४. मोबाईल app पूर्णपणे समजून घेतले.
+                                    </div>
+                                </div>
+                                <hr/>          
+                                <div class="row">
+                                    <div class="col-md-2 col-sm-2" style="float:left;">
+                                        <apex:inputField value="{!mttrain.MT5__c}" style="width:30px;height:30px;"/>
+                                    </div>
+                                    <div class="col-md-10 col-sm-10">
+                                        ५. मोबाईल app मधून मुख्याध्यापक, केंद्र प्रमुख, तालुका व जिल्हा शिक्षणाधिकारी यांनी भरावयाच्या अहवालांच्या फॉर्म्सची नेमकी माहिती समजून घेतली.
+                                    </div>
+                                </div>
+                                <hr/>  
+                                 <div class="row">
+                                    <div class="col-md-12 col-sm-12">
+                                        ६. प्रशिक्षण देण्यासाठीचे सर्व साहित्य समजून घेऊन आपल्या ताब्यात घेतले.
+                                    </div>
+                                </div>
+                                <br/>
+                                 <div class="row">
+                                    <div class="col-md-1 col-sm-1 ">
+                                    </div>
+                                    <div class="col-md-2 col-sm-2" style="float:left;">
+                                        <apex:inputField value="{!mttrain.MT6_1__c}" style="width:30px;height:30px;"/>
+                                    </div>
+                                    <div class="col-md-9 col-sm-9">
+                                        मूल्यवर्धन बॅनर व पोस्टर्स
+                                    </div>
+                                </div>
+                                <br/>
+                                <div class="row">
+                                    <div class="col-md-1 col-sm-1 ">
+                                    </div>
+                                    <div class="col-md-2 col-sm-2" style="float:left;">
+                                        <apex:inputField value="{!mttrain.MT6_2__c}" style="width:30px;height:30px;"/>
+                                    </div>
+                                    <div class="col-md-9 col-sm-9">
+                                       पावर पॉइंट प्रेझेंटेशन
+                                    </div>
+                                </div>
+                                <br/>
+                                <div class="row">
+                                    <div class="col-md-1 col-sm-1 ">
+                                    </div>
+                                    <div class="col-md-2 col-sm-2" style="float:left;">
+                                        <apex:inputField value="{!mttrain.MT6_3__c}" style="width:30px;height:30px;"/>
+                                    </div>
+                                    <div class="col-md-9 col-sm-9">
+                                       हस्तपुस्तिका
+                                    </div>
+                                </div>
+                                <br/>
+                                <div class="row">
+                                    <div class="col-md-1 col-sm-1 ">
+                                    </div>
+                                    <div class="col-md-2 col-sm-2" style="float:left;">
+                                        <apex:inputField value="{!mttrain.MT6_4__c}" style="width:30px;height:30px;"/>
+                                    </div>
+                                    <div class="col-md-9 col-sm-9">
+                                        पेन ड्राईव्ह
+                                    </div>
+                                </div>
+                                <br/>
+                                <div class="row">
+                                    <div class="col-md-1 col-sm-1 ">
+                                    </div>
+                                    <div class="col-md-2 col-sm-2 " style="float:left;">
+                                        <apex:inputField value="{!mttrain.MT6_5__c}" style="width:30px;height:30px;"/>
+                                    </div>
+                                    <div class="col-md-9 col-sm-9">
+                                        सुतळी बंडल
+                                    </div>
+                                </div>
+                                <br/>
+                                <div class="row">
+                                    <div class="col-md-1 col-sm-1 ">
+                                    </div>
+                                    <div class="col-md-2 col-sm-2 " style="float:left;">
+                                        <apex:inputField value="{!mttrain.MT6_6__c}" style="width:30px;height:30px;"/>
+                                    </div>
+                                    <div class="col-md-9 col-sm-9">
+                                         स्टेपलर व पिना
+                                    </div>
+                                </div>   
+                                <br/>
+                                <div class="row">
+                                    <div class="col-md-1 col-sm-1 ">
+                                    </div>
+                                    <div class="col-md-2 col-sm-2 " style="float:left;">
+                                        <apex:inputField value="{!mttrain.MT6_7__c}" style="width:30px;height:30px;"/>
+                                    </div>
+                                    <div class="col-md-9 col-sm-9">
+                                        फुगे
+                                    </div>
+                                </div>   
+                                <br/>
+                                <div class="row">
+                                    <div class="col-md-1 col-sm-1 ">
+                                    </div>
+                                    <div class="col-md-2 col-sm-2 " style="float:left;">
+                                        <apex:inputField value="{!mttrain.MT6_8__c}" style="width:30px;height:30px;"/>
+                                    </div>
+                                    <div class="col-md-9 col-sm-9">
+                                        चिकट टेप
+                                    </div>
+                                </div>  
+                                <br/> 
+                                <div class="row">
+                                    <div class="col-md-1 col-sm-1 ">
+                                    </div>
+                                    <div class="col-md-2 col-sm-2 " style="float:left;">
+                                        <apex:inputField value="{!mttrain.MT6_9__c}" style="width:30px;height:30px;"/>
+                                    </div>
+                                    <div class="col-md-9 col-sm-9">
+                                        कात्री
+                                    </div>
+                                </div>  
+                                <br/> 
+                                <div class="row">
+                                    <div class="col-md-1 col-sm-1 ">
+                                    </div>
+                                    <div class="col-md-2 col-sm-2 " style="float:left;">
+                                        <apex:inputField value="{!mttrain.MT6_10__c}" style="width:30px;height:30px;"/>
+                                    </div>
+                                    <div class="col-md-9 col-sm-9">
+                                        लेजर लाईट
+                                    </div>
+                                </div>  
+                                <br/> 
+                                <div class="row">
+                                    <div class="col-md-1 col-sm-1 ">
+                                    </div>
+                                    <div class="col-md-2 col-sm-2 " style="float:left;">
+                                        <apex:inputField value="{!mttrain.MT6_11__c}" style="width:30px;height:30px;"/>
+                                    </div>
+                                    <div class="col-md-9 col-sm-9">
+                                      प्रशिक्षणार्थीसाठी ओळखपत्रे
+                                    </div>
+                                </div>         
+                                 <hr/>  
+                                 <div class="row">
+                                    <div class="col-md-12 col-sm-12">
+                                        ७. मुख्य कार्यालयातून प्रशिक्षणाचे तालुकावाईज वेळपत्रक मंजूर करून घेतले
+                                    </div>
+                                </div>
+                                <br/>
+                                <div class="row">
+                                
+                                    <div class="input-group">
+                                        <span class="input-group-addon"> वेळापत्रक: </span>
+                                        <apex:inputField value="{!mttrain.MT7__c}" styleClass="form-control input-lg"/>
+                                      </div>
+                                
+                                
+                                    
+                                </div>     
+                                <hr/>                                 
+                                    <div class="row">
+                                        <div class="col-md-2 col-sm-2" style="float:left;">
+                                            <apex:inputField value="{!mttrain.MT12__c}" style="width:30px;height:30px;"/>
+                                        </div>
+                                        <div class="col-md-10 col-sm-10">
+                                            ८. वेळापत्रकाप्रमाणे TC बरोबर संपर्क साधला
+                                        </div>
+                                    </div>                                
+                                <hr/> 
+                                 <div class="row">
+                                    <div class="col-md-12 col-sm-12">
+                                        ९. वेळापत्रकाप्रमाणे TC बरोबर संपर्क साधला
+                                    </div>
+                                </div>
+                                <div class="row"> 
+                                    
+                                    <div class="input-group">
+                                        <span class="input-group-addon"> प्रेरकांची संख्या: </span>
+                                        <apex:inputField value="{!mttrain.MT8__c}" styleClass="form-control input-lg"/>
+                                      </div>                                   
+                                    <!-- <div class="col-md-3 col-sm-3"><span class="input-group-addon"> प्रेरकांची संख्या:</span>
+                                    </div>
+                                    <div class="col-md-9 col-sm-9 ">
+                                        <apex:inputField value="{!mttrain.MT8__c}" style="width:400px;" />
+                                    </div> -->
+                                    
+                                </div> <div class="row">
+                                        
+                                        <div class="input-group">
+                                        <span class="input-group-addon"> Batch No: </span>
+                                        <apex:inputField value="{!mttrain.MT9__c}" styleClass="form-control input-lg"/>
+                                      </div>
+                                      
+                                   <!-- <div class="col-md-3 col-sm-3 "><span class="input-group-addon">Batch No:</span>
+                                    </div>
+                                    <div class="col-md-9 col-sm-9 ">
+                                        <apex:inputField value="{!mttrain.MT9__c}" style="width:400px;" />
+                                    </div> -->
+                                    
+                                </div> 
+                                <div class="row">
+                                        <div class="input-group">
+                                        <span class="input-group-addon"> इतर-सविस्तर लिहा: </span>
+                                        <apex:inputField value="{!mttrain.MT10__c}" styleClass="form-control input-lg"/>
+                                      </div>
+                                        
+                                    <!-- <div class="col-md-3 col-sm-3 "><span class="input-group-addon">इतर-सविस्तर लिहा:</span>
+                                    </div>
+                                    <div class="col-md-9 col-sm-9 ">
+                                        <apex:inputField value="{!mttrain.MT10__c}" style="width:400px;" />
+                                    </div> -->
+                                    
+                                </div> 
+                                <br/>
+                                                               
+                                <div class="row">
+                                    <div class="col-md-12 col-sm-12" align="center">
+                                      <div class="input-group" align="center">                                       
+                                    <apex:commandButton value="Submit" action="{!save}" onclick="refresPage();" styleClass="btn btn-lg" style="background-color:#FF4081;color:white;font-style:bold;"/>
+                                      </div>
+                                    </div>
+                                </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+</body>
+</html>
+</apex:form>  
+</apex:page>

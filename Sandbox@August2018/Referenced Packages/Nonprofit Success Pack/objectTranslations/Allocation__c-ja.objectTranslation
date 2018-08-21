@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value><!-- GAU Allocation --></value>
+    </caseValues>
+    <fields>
+        <help><!-- Amount of the opportunity to allocate to this general accounting unit. Leave blank for percent based allocations. --></help>
+        <label>金額</label>
+        <name>Amount__c</name>
+    </fields>
+    <fields>
+        <help><!-- Optionally attributes allocations to a campaign. All new opportunities created with this campaign as primary campaign source will automatically be allocated in the same way. --></help>
+        <label>キャンペーン</label>
+        <name>Campaign__c</name>
+        <relationshipLabel>一般会計単位の割り当て</relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- The general accounting unit to attribute this allocation. Only general accounting units marked as active are available for new allocations. --></help>
+        <label>一般会計単位</label>
+        <lookupFilter>
+            <errorMessage>割り当ては、有効な一般会計単位にのみ行うことができます。無効な一般会計単位への割り当ては変更できません。</errorMessage>
+            <informationalMessage>選択できるのは有効な一般会計単位のみです。</informationalMessage>
+        </lookupFilter>
+        <name>General_Accounting_Unit__c</name>
+        <relationshipLabel>一般会計単位の割り当て</relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Attributes allocations to an opportunity. All opportunities in a closed and won stage will be rolled up to this allocation&apos;s general accounting unit. --></help>
+        <label>支援</label>
+        <name>Opportunity__c</name>
+        <relationshipLabel>一般会計単位の割り当て</relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Percent of opportunity amount to allocate to this general accounting unit. Modifying an opportunity amount of a percent based allocation will modify the allocation amount. --></help>
+        <label>パーセント</label>
+        <name>Percent__c</name>
+    </fields>
+    <fields>
+        <help><!-- Optionally attributes allocations to a recurring donation. All new opportunities created with this recurring donation schedule will automatically be allocated in the same way. --></help>
+        <label>継続支援</label>
+        <name>Recurring_Donation__c</name>
+        <relationshipLabel>一般会計単位の割り当て</relationshipLabel>
+    </fields>
+    <nameFieldLabel><!-- GAU Allocation Name --></nameFieldLabel>
+    <webLinks>
+        <label>割り当ての管理</label>
+        <name>Manage_Allocations</name>
+    </webLinks>
+</CustomObjectTranslation>

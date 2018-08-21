@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <caseType>Nominative</caseType>
+        <plural>false</plural>
+        <value><!-- DEPRECATED-Opportunity Rollup Errors --></value>
+    </caseValues>
+    <caseValues>
+        <caseType>Nominative</caseType>
+        <plural>true</plural>
+        <value><!-- DEPRECATED-Opportunity Rollup Errors --></value>
+    </caseValues>
+    <caseValues>
+        <caseType>Accusative</caseType>
+        <plural>false</plural>
+        <value><!-- DEPRECATED-Opportunity Rollup Errors --></value>
+    </caseValues>
+    <caseValues>
+        <caseType>Accusative</caseType>
+        <plural>true</plural>
+        <value><!-- DEPRECATED-Opportunity Rollup Errors --></value>
+    </caseValues>
+    <caseValues>
+        <caseType>Genitive</caseType>
+        <plural>false</plural>
+        <value><!-- DEPRECATED-Opportunity Rollup Errors --></value>
+    </caseValues>
+    <caseValues>
+        <caseType>Genitive</caseType>
+        <plural>true</plural>
+        <value><!-- DEPRECATED-Opportunity Rollup Errors --></value>
+    </caseValues>
+    <caseValues>
+        <caseType>Dative</caseType>
+        <plural>false</plural>
+        <value><!-- DEPRECATED-Opportunity Rollup Errors --></value>
+    </caseValues>
+    <caseValues>
+        <caseType>Dative</caseType>
+        <plural>true</plural>
+        <value><!-- DEPRECATED-Opportunity Rollup Errors --></value>
+    </caseValues>
+    <fields>
+        <help><!-- Datetime of the error --></help>
+        <label>Datum/Uhrzeit des Fehlers</label>
+        <name>Error_Datetime__c</name>
+    </fields>
+    <fields>
+        <help><!-- Full text of the error message --></help>
+        <label>Fehlermeldung</label>
+        <name>Error_Message__c</name>
+    </fields>
+    <fields>
+        <help><!-- The object type to which this error refers --></help>
+        <label>Fehlerobjekttyp</label>
+        <name>Error_Object_Type__c</name>
+    </fields>
+    <fields>
+        <help><!-- Link to the record on which the error occurred --></help>
+        <label>Fehlerdatensatzlink</label>
+        <name>Error_Record_Link__c</name>
+    </fields>
+    <fields>
+        <help><!-- Type of error that occurred --></help>
+        <label>Fehlertyp</label>
+        <name>Error_Type__c</name>
+    </fields>
+    <gender><!-- Neuter --></gender>
+</CustomObjectTranslation>

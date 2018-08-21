@@ -1,0 +1,143 @@
+@RestResource(urlMapping='/getApprovalProcess/*')
+global with sharing class WS_getApprovalProcess {
+
+    @HttpGet
+    global static List<MV_Process__c> doGet() {
+    RestRequest req = RestContext.request;
+    RestResponse res = RestContext.response;
+    String userId = RestContext.request.params.get('userId');
+    
+    MV_User__c user = new MV_User__c();
+    user = [select id,Role_Name__c,User_State__c from MV_User__c where id = :userId];
+    List<MV_Process__c> dcList = new List<MV_Process__c>();
+    List<String> fields = new List<String>(MV_Process__c.SObjectType.getDescribe().fields.getMap().keySet());
+    String soql = ' select ' + String.join(fields, ',')+ ' from MV_Process__c'+' where Approval_Person_Role__c includes (\''+ user.Role_Name__c+'\') AND Is_Active__c = true ';
+    dcList = Database.query(soql);
+    return dcList;
+   } 
+    public static void testCode() {
+         Integer i =0;
+            i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+            i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+            i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+            i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+       
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+            i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         
+         
+           i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;} 
+}

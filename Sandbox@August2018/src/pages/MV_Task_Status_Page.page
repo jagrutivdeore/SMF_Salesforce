@@ -1,0 +1,108 @@
+<apex:page standardController="MV_Task__c" extensions="MV_Task_Status">
+ <apex:form id="form1">
+     <apex:actionRegion >
+         <apex:pageBlock id="pblockid" >
+             <div align="Center"> 
+                 <b><h6>
+                     Analysis Of Task Status
+                     </h6></b>
+             </div>
+                <br /><br />
+  <apex:actionfunction name="setValueToState" action="{!checkStateValue}" rerender="form1,talId,outPutId,pieChart1,pieChart2,areaId,talId,distId,table1,divId,headingTitle,pieChartId,chID"/>
+               <apex:actionfunction name="setValueToDist" action="{!setValueToDist}" rerender="form1,talId,outPutId,pieChart1,pieChart2,areaId,talId,distId,table1,divId,headingTitle,pieChartId,chID"/>
+             
+                 <apex:actionfunction name="setValueToTal" action="{!checkTalValue}" rerender="form1,talId,outPutId,pieChart1,pieChart2,areaId,talId,distId,table1,divId,headingTitle,pieChartId,chID"/> 
+         
+            <!-- <apex:actionfunction name="setValueToState" action="{!checkStateValue}" rerender="form1,talId,outPutId,pieChart1,,pieChart2,table1,divId,headingTitle,pieChartId"/>
+               <apex:actionfunction name="setValueToDist" action="{!setValueToDist}" rerender="form1,talId,outPutId,pieChart1,,pieChart2,table1,divId,headingTitle,pieChartId"/>
+             
+                 <apex:actionfunction name="setValueToTal" action="{!checkTalValue}" rerender="form1,talId,outPutId,pieChart1,,pieChart2,table1,divId,headingTitle,pieChartId"/> -->
+             <apex:actionfunction name="fetchTraineeData" action="{!fetchTraineeDataFromDatabase}" rerender="form1,talId,outPutId,pieChart1,,pieChart2,table1,divId,headingTitle,pieChartId,chID"/>
+             <apex:actionfunction name="setValueToProcess" action="{!setValueToProcess}" rerender="form1,talId,outPutId,pieChart1,,pieChart2,table1,divId,headingTitle,pieChartId,chID"/>
+
+            
+     
+             <apex:pageBlockSection columns="2">
+         
+        <apex:selectList label="State" value="{!State}" multiselect="false" size="1" onchange="setValueToState()">
+            <apex:selectOptions value="{!stateList}"/>
+        </apex:selectList>
+        <apex:selectList label="District" value="{!dist}" multiselect="false" size="1" onchange="setValueToDist()" id="distId">
+            <apex:selectOptions value="{!District}"/>
+        </apex:selectList>
+         <apex:selectList label="Taluka" id="talId" value="{!tal}" multiselect="false" size="1" onchange="setValueToTal()">
+            <apex:selectOptions value="{!Taluka}"/>
+        </apex:selectList>
+          <apex:selectList label="Process" id="areaId" value="{!qustionArea}" multiselect="false" size="1" onchange="setValueToProcess()">
+            <apex:selectOptions value="{!Section}"/>
+        </apex:selectList>
+                 
+        <apex:selectList label="Task" id="taskId" value="{!task}" multiselect="false" size="1" onchange="fetchTraineeData()">
+            <apex:selectOptions value="{!taskDetail}"/>
+        </apex:selectList> 
+                 </apex:pageBlockSection>        
+             
+             </apex:pageBlock>
+             </apex:actionRegion>                   
+
+             </apex:form>
+        <apex:pageBlock title="{! IF(pieData1.size > 0,'' , '') }" id="pieChartId">
+         
+            <apex:pageBlockSection id="divId" columns="1">
+            
+                <div align="Center">
+                    <b>
+                        <h1>
+                         <p >
+                   <!--{!sessionName}--> 
+                             <!--{! IF(sessionName == 'Select', sessionName, '') } -->
+               </p>       
+                        </h1>
+                     
+                    </b>
+                     
+                </div>
+               
+               
+                 <h1>
+                <br/>
+               
+                            
+               <apex:outputLabel >State:  {! IF(state == 'Select','Not Selected',state) }
+               </apex:outputLabel>
+                     
+                <apex:outputLabel >District:  {! IF(dist == 'Select','Not Selected',dist) }
+               </apex:outputLabel>
+                     
+                     
+                     <apex:outputLabel >Taluka:  {! IF(tal == 'Select','Not Selected',tal) }
+               </apex:outputLabel>
+                     
+                     <apex:outputLabel >Process:  {! IF(qustionArea == 'Select','Not Selected',qustionArea) }
+               </apex:outputLabel>
+                     
+                     <apex:outputLabel >Task:  {! IF(task == 'Select','Not Selected',task) }
+               </apex:outputLabel>
+                   
+                   </h1>  
+                   
+                   </apex:pageBlockSection>
+            <apex:pageBlockSection id="chID">
+                   <div align="center" draggable="false" >
+                       
+ 
+                  <apex:chart height="650" width="650" data="{! IF(pieData1.size > 0, pieData1, '') }" id='pieChart1' rendered="{!totalFeedBackCount <> 0}">
+                 <apex:pieSeries dataField="data" labelField="name">
+                   
+                </apex:pieSeries>    
+                <apex:legend position="right"/>
+                    
+                </apex:chart> 
+                   
+                                     </div>
+                   
+			 </apex:pageBlockSection>
+        </apex:pageBlock>
+
+
+</apex:page>

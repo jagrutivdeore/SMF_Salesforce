@@ -1,0 +1,199 @@
+<!--- Table   --->
+<apex:page standardStylesheets="false" standardController="MV_Content__c" extensions="SawandModelTable_Controller" title="Popup Example" applyBodyTag="false" sidebar="false" showHeader="false" >
+
+    <head>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" ></script>
+        <style>
+            .container-fluid {
+            margin-top: 10px;
+            }
+            #InlineEditDialog {
+                display: none;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <apex:form id="pageId">
+             <ul class="nav nav-tabs">
+                    <li> <apex:actionRegion >
+                         <apex:commandButton value="My Community" action="{!refreshMyCommunity}"/>
+                           </apex:actionRegion>
+                 </li> 
+                         
+                 <li> <apex:actionRegion >
+                         <apex:commandButton value="Broadcast Message" action="{!refreshBroadcastMessage}" reRender="pageId"/>
+                           </apex:actionRegion>
+                 </li>
+                 
+                <li> <apex:actionRegion >
+                        <apex:commandButton value="Thet Sanvad" action="{!updatePage}" reRender="pageId"/> 
+                           </apex:actionRegion>
+                 </li>
+                 
+                   
+                  <li> <apex:actionRegion >
+                         <apex:commandButton value="Programme Management" action="{!refreshProgramManagement}" reRender="pageId"/>
+                           </apex:actionRegion>
+                 </li>
+                 
+                 <li> <apex:actionRegion >
+                         <apex:commandButton value="Executive Dashboard" action="{!sectionwiseDashboardnewdatamodel}" reRender="pageId"/>
+                            </apex:actionRegion>
+                 </li>
+                 
+                 <li> <apex:actionRegion >
+                         <apex:commandButton value="M&E Dashboard" action="{!MandEDashboard}" reRender="pageId"/>
+                            </apex:actionRegion>
+                 </li>
+
+                 
+                 
+                 
+                 
+                   <!--<li>      
+                  <apex:commandButton value="Logout" onclick="window.location.href='https://cs57.salesforce.com/secur/logout.jsp'"/>
+                 </li> -->
+                <!-- <li ><a data-toggle="tab" onclick="window.location.href='https://cs57.salesforce.com/secur/logout.jsp'" >Logout</a></li> -->
+                
+                  <li ><a data-toggle="tab" onclick="window.location.href='https://cs57.salesforce.com/secur/logout.jsp'" >Logout</a></li> 
+              </ul>
+            
+            
+                <div class="tab-content" >
+                <div class="tab-pane fade in active" id= "tab2">
+                
+                     <div class="panel panel-success">
+            <div class="panel-heading"><h3>Broadcast Message</h3>
+          <!--  <apex:actionRegion id="area511" renderRegionOnly="false">
+            <apex:commandButton styleclass="btn btn-primary" value="Refresh" action="{!refreshBroadcastMsg}" reRender="pageId" style="float: right;"/>
+            </apex:actionRegion> -->
+                
+                <apex:outputPanel rendered="{!rl[0].canAddBrodcastMsg__c}">
+                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal2" style="float: right;" >
+                 <span class="glyphicon glyphicon-plus-sign" /> Add New Broadcast
+                 </button>
+                </apex:outputPanel>
+                
+             </div>
+                <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                            </button>
+                            
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label>Title</label><br />
+                                <apex:inputField value="{!broadcastcontent.Title__c}" html-placeholder="Title" styleClass="form-control"/>
+                            </div>
+                            <div class="form-group">
+                                <label>Description</label><br />
+                                <apex:inputField value="{!broadcastcontent.Description__c}" html-placeholder="Description" styleClass="form-control"/>
+                            </div>
+                             <div class="form-group">
+                                <label>Role</label><br />
+                                <apex:inputField value="{!broadcastcontent.Broadcase_Role__c}" html-placeholder="Role" styleClass="form-control"/>
+                            </div>
+                            
+                           
+                           <div class="form-group">
+                                <label>Location</label><br />
+                                <apex:inputField value="{!broadcastcontent.MV_Location__c}" html-placeholder="Role" styleClass="form-control"/>
+                            </div> 
+                            <div class="form-group">
+                                <label>File:</label><br />
+                                <label class="btn btn-primary" > Browse File 
+                                <apex:inputFile value="{!broadAttchBody}" accept="image/png,audio/mp3,video/mp4" contentType="{!broadcontentType}" styleclass="form-control" />
+                                 </label>
+                                 
+                            </div>
+                           
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>                                                
+                            <apex:commandButton styleclass="btn btn-primary" value="Save" action="{!insertbroadcastContent}" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body">
+            <div class="row">
+                    
+                <div class="col-md-6">
+                    <div class="panel-body">
+                     <div class="panel-heading"><h4>Broadcast Information List</h4></div>
+            <apex:outputPanel id="op3">
+                <table class="table table-bordered">
+                    <tr>
+                        <th>No</th>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>View/Delete</th>
+                        
+                    </tr>
+                    <apex:variable value="{!1}" var="rowNum"/>
+                    <apex:repeat value="{!broadConList}" var="brd">
+                        <tr>
+                            <td>
+                                {!counter + rowNum}
+                               <apex:variable var="rowNum" value="{!rowNum + 1}"/>
+                            </td>
+                            
+                            <td>
+                                <apex:outputField value="{!brd.Title__c}" />
+                            </td>
+                            <td>
+                                <apex:outputField value="{!brd.Description__c}" />
+                            </td>
+                            <td>
+                              <apex:outputLink value="/apex/SawandModel?id={!brd.Id}" id="theLink">view </apex:outputLink>
+                               
+                                <apex:actionRegion id="area511" renderRegionOnly="false">
+                                            <apex:commandlink value="/Delete" action="{!DeleteBrodacastContent}" rendered="{!rl[0].canDeletePostAndComment__c == true }">
+                                      <apex:param name="contentId" value="{!brd.Id}" assignTo="{!contentId}"/>
+                                       </apex:commandlink>
+                                      </apex:actionRegion>
+                           
+                            </td>
+                        
+                        </tr>
+                        
+                        
+                    </apex:repeat>
+                    
+                </table>
+                
+                                        <apex:commandButton value="Previous" action="{!previous}" disabled="{!DisablePrevious}"/>
+                        <apex:commandButton value="next" action="{!Next}" disabled="{!DisableNext}"/>
+
+            </apex:outputPanel>
+                        
+                     <!--   <apex:commandButton value="previous" action="{!previous}" disabled="{!DisablePrevious}"/>
+              <apex:commandButton value="next" action="{!next}" disabled="{!DisableNext}"/> -->
+                        
+        </div>
+        </div>
+       
+                
+            
+                
+                
+                
+     </div>
+    </div>
+
+    </div>
+    </div>
+    
+                
+</div>          
+ </apex:form>
+                
+    </body> 
+
+</apex:page>

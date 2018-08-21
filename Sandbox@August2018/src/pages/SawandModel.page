@@ -1,0 +1,214 @@
+<!-- model -->
+
+<apex:page standardStylesheets="false" standardController="MV_Content__c" extensions="SawandModel_Controller" title="Popup Example" applyBodyTag="false" sidebar="false" showHeader="false" id="pageId">
+    
+    <head>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" ></script>
+        <style>
+            .container-fluid {
+            margin-top: 10px;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <apex:form >
+       
+            <div class="container-fluid">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="panel panel-success">
+                            <div class="panel-heading">Content Information
+                             <!--<a href="/apex/SawandModelTable1" class="btn btn-info" role="button" target="_parent" style="float: right;">Link Button</a> -->
+                              
+                            
+                                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModalupdate" style="float: right;">
+                                    <span class="glyphicon glyphicon-update-sign" /> Change Status
+                                </button>
+                            
+                            </div>
+                            
+                            
+                            
+                            
+                            
+                            <div class="modal fade" id="myModalupdate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                                                </button>
+                                                <h4 class="modal-title" id="myModalLabel">Change Status</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="form-group">
+                                                    <label>Status</label><br />
+                                                    <apex:inputField value="{!con.Status__c}" html-placeholder="Enter Comment" styleClass="form-control"/>
+                                                </div>
+                                               
+                                            </div> 
+                                            
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal" onClick="window.location.reload()" >Close</button>                                                
+                                                <apex:commandButton styleclass="btn btn-primary" value="Save" action="{!changeStatus}" reRender="contactTable" onComplete="$('#myModalupdate').modal('hide');$('body').removeClass('modal-open');$('.modal-backdrop').remove();"/>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            
+                            
+                            
+                            
+                            
+                             
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="aName">Title</label>
+                                            <br />
+                                            <apex:outputField value="{!con.Title__c}" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="aOwner">Description</label>
+                                            <br />
+                                            <apex:outputField value="{!con.Description__c}" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="Type">User Name</label>
+                                            <br />
+                                            <apex:outputField value="{!con.MV_User__c}" />
+                                        </div>
+                                    </div>
+                                       <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="Type1">Category </label>
+                                            <br />
+                                            <apex:outputField value="{!con.Category__c}" />
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                
+                                 <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="Type1">Attachment </label>
+                                            <br />
+                                         <!-- <apex:outputlink value="http://13.58.218.106/images/{!con.Id}.{!con.Attachment_Type__c}" target="_blank"> VFpages</apex:outputlink> -->
+                                          <apex:outputlink value="http://mobileapp.mulyavardhan.org/images/{!con.Id}.{!con.Attachment_Type__c}" target="_blank" Rendered="{!con.isAttachmentPresent__c}"> Click here</apex:outputlink> 
+                                        
+                                        </div>
+                                    </div>
+                                     
+                                     
+                                      <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="Type1">Status </label>
+                                            <br />
+                                          <apex:outputField value="{!con.Status__c}" />
+                                        </div>
+                                    </div>
+                                     
+                                    
+                                   
+                                </div>
+                                
+                                
+                            </div>
+                        </div>
+                        <!-- <div class="modal fade" id="myModal5">
+                            <div class="modal-dialog">
+                                <div class="modal-content bmd-modalContent">
+
+                                    <div class="modal-body">
+                              
+                              <div class="close-button">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                              </div>
+                              <div class="embed-responsive embed-responsive-16by9">
+                                        <!--  <iframe Src="www.google.com" class="embed-responsive-item" frameborder="0"></iframe>
+                                        <img class="pull-left" src="http://13.58.218.106/images/{!con.Id}.png" width="256" height="256" alt="image"/>
+                              </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div> -->
+                        
+                        <div class="panel panel-info">
+                            <div class="panel-heading"><div>
+                                Related Comments
+                                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal" style="float: right;">
+                                    <span class="glyphicon glyphicon-plus-sign" /> New
+                                </button>
+                                </div>
+                                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                                                </button>
+                                                <h4 class="modal-title" id="myModalLabel">Add Comments</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="form-group">
+                                                    <label>Comment</label><br />
+                                                    <apex:inputField value="{!comm.Comment__c}" html-placeholder="Enter Comment" styleClass="form-control"/>
+                                                </div>
+                                               
+                                            </div> 
+                                            
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal" onClick="window.location.reload()">Close</button>                                                
+                                                <apex:commandButton styleclass="btn btn-primary" value="Save" action="{!addComment}" reRender="contactTable" onComplete="$('#myModal').modal('hide');$('body').removeClass('modal-open');$('.modal-backdrop').remove();"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <apex:outputPanel id="contactTable">
+                                    <table class="table table-condensed">
+                                        <tr>
+                                            <th>User</th>
+                                            <th>Comments</th>
+                                            <th>Delete</th>
+                                            
+                                        </tr>
+                                        <apex:repeat value="{!commentList}" var="conn">
+                                            <tr>
+                                                <td>
+                                                    <apex:outputField value="{!conn.MV_User__c}" />
+                                                </td>
+                                                <td>
+                                                    <apex:outputField value="{!conn.Comment__c}" />
+                                                </td>
+                                                 <td>
+                                                     <apex:actionRegion id="area511" renderRegionOnly="false">
+                                            			<apex:commandlink value="Delete" action="{!DeleteBroadcastComment}" rendered="{!userList1[0].ID == conn.MV_User__c || rl[0].canDeletePostAndComment__c == true }">
+                                      					<apex:param name="contentId" value="{!conn.Id}" assignTo="{!commentId}"/>
+                                       					</apex:commandlink>
+                                      				</apex:actionRegion>
+                                                </td>
+                                            </tr>
+                                        </apex:repeat>
+                                    </table>
+                                </apex:outputPanel>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </apex:form>
+    </body>
+</apex:page>

@@ -1,0 +1,51 @@
+<!-- model -->
+
+<apex:page standardStylesheets="false" standardController="MV_Content__c" extensions="ContentDetailController" title="Popup Example" applyBodyTag="false" sidebar="false" showHeader="false" id="pageId">
+    
+    <head>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" ></script>
+        <style>
+            .container-fluid {
+            margin-top: 10px;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <apex:form >
+       
+            <div class="container-fluid">
+                <div class="panel panel-default">
+                     <div class="panel-heading"><h3>Content Comments Are:</h3></div>
+                                    <table class="table table-bordered">
+                                        <tr>
+                                            <th>Title</th>
+                                            <th>Name</th>
+                                            <th>Status</th>
+                                            <!--<th>Delete</th> -->
+                                            
+                                            
+                                            
+                                        </tr>
+                                        <apex:repeat value="{!conList}" var="conn">
+                                            <tr>
+                                                <td>
+                                                    <apex:outputField value="{!conn.Comment__c}" />
+                                                </td>
+                                                 <td>
+                                                    <apex:outputField value="{!conn.User_Name__c}" />
+                                                </td>
+                                                <td>
+                                                    <apex:outputField value="{!conn.status__c}" />
+                                                </td>
+                                                 
+                                            </tr>
+                                        </apex:repeat>
+                                    </table>
+            </div>
+            </div>
+        </apex:form>
+    </body>
+</apex:page>

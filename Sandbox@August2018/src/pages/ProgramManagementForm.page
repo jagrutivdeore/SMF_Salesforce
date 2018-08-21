@@ -1,0 +1,114 @@
+<apex:page Controller="ProgramForm" title="Popup Example" applyBodyTag="false" sidebar="false" showHeader="false" id="pageId">
+    
+      <head>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" ></script>
+        <style>
+            .container-fluid {
+            margin-top: 10px;
+            }
+        </style>
+    </head>
+    
+    <apex:form >
+    <apex:outputPanel rendered="{!isState}">
+        <label>State</label><br />
+        <apex:selectList value="{!stateIs}" multiselect="false" label="State" size="1" >
+            <apex:selectOptions value="{!State}">
+            </apex:selectOptions>
+            <apex:actionSupport event="onchange" reRender="dist1" action="{!getDistrict}">
+            </apex:actionSupport>
+        </apex:selectList><p/>
+    </apex:outputPanel>
+    
+    <apex:outputPanel rendered="{!isDistrict}">
+        <label>District</label><br />
+        <apex:selectList label="District" id="dist1" value="{!distIs}"  multiselect="false"  size="1" >
+            <apex:selectOptions value="{!dist}">
+            </apex:selectOptions>
+            
+            <apex:actionSupport event="onchange" reRender="tal1" action="{!getTaluka}">
+            </apex:actionSupport>
+        </apex:selectList><p/>
+        
+    </apex:outputPanel>
+    
+    <apex:outputPanel rendered="{!isTaluka}">
+        <label>Taluka</label><br />
+        <apex:selectList id="tal1" value="{!talIs}"  multiselect="false"  size="1" >
+            <apex:selectOptions value="{!tal}">
+            </apex:selectOptions>
+            
+            <apex:actionSupport event="onchange" reRender="cluster1" action="{!getclusterlist}">
+            </apex:actionSupport>
+            
+            
+        </apex:selectList><p/>
+        
+    </apex:outputPanel>
+    
+    <apex:outputPanel >
+        <label>Cluster</label><br />
+        <apex:selectList id="cluster1" value="{!clusterIs}"  multiselect="false"  size="1" >
+            <apex:selectOptions value="{!cluster}">
+            </apex:selectOptions>
+            
+            <apex:actionSupport event="onchange" reRender="village1" action="{!getVillageList}">
+            </apex:actionSupport>
+            
+        </apex:selectList><p/>
+        
+    </apex:outputPanel>
+    
+    
+    <apex:outputPanel >
+        <label>Village</label><br />
+        <apex:selectList id="village1" value="{!villageIs}"  multiselect="false"  size="1" >
+            <apex:selectOptions value="{!village}">
+            </apex:selectOptions>
+            
+            <apex:actionSupport event="onchange" reRender="school1" action="{!getSchoollist}">
+            </apex:actionSupport> 
+            
+        </apex:selectList><p/>
+        
+    </apex:outputPanel>
+    
+    <apex:outputPanel >
+        <label>School</label><br />
+        <apex:selectList id="school1" value="{!schoolIs}"  multiselect="false"  size="1" >
+            <apex:selectOptions value="{!school}">
+            </apex:selectOptions>
+            
+            
+            
+        </apex:selectList><p/>
+        
+    </apex:outputPanel>
+    
+    <apex:variable var="index" value="{!-1}" />
+    <apex:repeat value="{!tskListForVF}" var="string" id="theRepeat"> 
+        <div class="form-group">
+            <apex:variable var="index" value="{!index + 1}" />
+            <apex:outputPanel Rendered="{!string.Task_type__c != 'Location'}">
+                <label >{!string.Task_Text__c}</label><br />
+                
+                <apex:inputText value="{!string.API_field_Name__c}"  html-placeholder=" enter Comments" styleClass="form-control" Rendered="{!string.Task_type__c == 'Text'}"></apex:inputText>
+                <apex:inputText value="{!string.API_field_Name__c}"  html-placeholder=" enter Comments" styleClass="form-control"  Rendered="{!string.Task_type__c == 'Multi-Lines'}"></apex:inputText> 
+                
+                <apex:selectList value="{!string.API_field_Name__c}" multiselect="false"  size="1" Rendered="{!string.Task_type__c == 'Selection'}">
+                    <apex:selectOptions value="{!selectOp[index]}">
+                    </apex:selectOptions>
+                </apex:selectList>
+            </apex:outputPanel>
+            
+        </div>
+    </apex:repeat> 
+        
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>                                                
+          <apex:commandButton styleclass="btn btn-primary" value="Save" action="{!saveForm}" />
+       </div>
+        </apex:form>
+</apex:page>

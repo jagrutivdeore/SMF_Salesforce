@@ -1,0 +1,88 @@
+<apex:page standardController="MV_TraineeFeedback__c" extensions="barChartComparison">
+ <apex:form id="form1">
+     <apex:actionRegion >
+         <apex:pageBlock id="pblockid" >
+             <div align="Center"> 
+                 <b><h6>
+                     Analysis Of Received Trainee Feedback Until Today Of Taluka Level Training
+                     </h6></b>
+             </div>
+                <br /><br />
+            <apex:actionfunction name="setValueToState" action="{!checkStateValue}" rerender="form1,actStatusId,talId,outPutId,pieChart1,pieChart2,areaId,talId,distId,table1,divId,headingTitle,pieChartId,chID"/>
+            
+               <apex:actionfunction name="setValueToDist" action="{!setValueToDist}" rerender="form1,actStatusId,talId,outPutId,pieChart1,pieChart2,areaId,talId,distId,table1,divId,headingTitle,pieChartId,chID"/>
+             
+                 <apex:actionfunction name="setValueToTal" action="{!checkTalValue}" rerender="form1,actStatusId,talId,outPutId,pieChart1,pieChart2,areaId,talId,distId,table1,divId,headingTitle,pieChartId,chID"/> 
+                 
+            <!-- <apex:actionfunction name="setValueToState" action="{!checkStateValue}" rerender="form1,talId,outPutId,pieChart1,,pieChart2,table1,divId,headingTitle,pieChartId"/>
+               <apex:actionfunction name="setValueToDist" action="{!setValueToDist}" rerender="form1,talId,outPutId,pieChart1,,pieChart2,table1,divId,headingTitle,pieChartId"/>
+             
+                 <apex:actionfunction name="setValueToTal" action="{!checkTalValue}" rerender="form1,talId,outPutId,pieChart1,,pieChart2,table1,divId,headingTitle,pieChartId"/> -->
+             <apex:actionfunction name="fetchTraineeData" action="{!refreshdata}" rerender="form1,actStatusId,talId,outPutId,pieChart1,,pieChart2,table1,divId,headingTitle,pieChartId,chID,fileterId,filetertal"/>
+             
+             <apex:pageBlockSection columns="2" title="Location Criteria">
+         
+        <apex:selectList label="State" value="{!State}" multiselect="false" size="1" onchange="setValueToState()">
+            <apex:selectOptions value="{!stateList}"/>
+        </apex:selectList>
+        <apex:selectList label="District" value="{!dist}" multiselect="false" size="1" onchange="setValueToDist()" id="distId">
+            <apex:selectOptions value="{!District}"/>
+        </apex:selectList>
+         <apex:selectList label="Taluka" id="talId" value="{!tal}" multiselect="false" size="1" onchange="setValueToTal()">
+            <apex:selectOptions value="{!Taluka}"/>
+        </apex:selectList>
+          <apex:selectList label="Session" id="areaId" value="{!qustionArea}" multiselect="false" size="1" onchange="fetchTraineeData()">
+            <apex:selectOptions value="{!Section}"/>
+        </apex:selectList>
+            <apex:actionStatus id="actStatusId" >
+                <apex:facet name="start" >
+                 <apex:outputText label="Loading....."/>                 
+                </apex:facet>
+            </apex:actionStatus>
+            
+            
+            </apex:pageBlockSection>  
+            
+              
+             
+             </apex:pageBlock>
+             </apex:actionRegion>                   
+
+             </apex:form>
+             
+        <apex:pageBlock id="pieChartId">
+              
+            <apex:pageBlockSection id="chID">
+                   <apex:chart height="500" width="500" data="{!pieData}"> 
+             <apex:legend position="left"/>
+
+                <apex:axis type="Numeric" position="left" fields="data1,data2" title="percentage"/>    
+                <apex:axis type="Category" position="bottom" fields="name" title="Options"/>            
+                <apex:barSeries orientation="vertical" axis="left" xField="name" yField="data1,data2" title="मूल्यवर्धन ४ दिवसिय केंद्र पातळी कार्यशाळा-प्रशिक्षणार्थी अभिप्राय, मूल्यवर्धन ४ दिवसिय केंद्र पातळी कार्यशाळा-प्रशिक्षणार्थी अभिप्राय"/> 
+            </apex:chart>
+             </apex:pageBlockSection>
+            
+            <apex:pageBlockSection id="table1"  columns="2">
+            
+            <apex:pageblocktable value="{!FeedBackInDetail}" var="cnt" rendered="{!FeedBackInDetail != null}" width="100%">
+                        <apex:variable var="rowNo" value="{!0}" />
+                
+                <apex:column headerValue="Number" width="2%">
+                    <apex:variable var="rowNo" value="{!rowNo+1}"/>
+                    {!rowNo-1}
+                </apex:column>
+            
+                <apex:column headerValue="Feed Back Detail" width="50%">
+                {!cnt.AseKaWatate__c}
+                </apex:column>
+             
+            </apex:pageblocktable>
+            
+            </apex:pageBlockSection>
+                
+            
+
+        </apex:pageBlock>
+
+
+</apex:page>

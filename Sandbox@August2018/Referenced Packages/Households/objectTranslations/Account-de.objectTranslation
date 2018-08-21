@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label>Durchschnittliche Spende</label>
+        <name>AverageAmount__c</name>
+    </fields>
+    <fields>
+        <label>Gesamt Betrag bestes Spendenjahr</label>
+        <name>Best_Gift_Year_Total__c</name>
+    </fields>
+    <fields>
+        <label>Bestes Spendenjahr</label>
+        <name>Best_Gift_Year__c</name>
+    </fields>
+    <fields>
+        <label>Datum des ersten Spende</label>
+        <name>FirstCloseDate__c</name>
+    </fields>
+    <fields>
+        <help><!-- For Household Accounts, uses fields of non-excluded, ordered related Contacts. Generated automatically. --></help>
+        <label>Formelle Anrede</label>
+        <name>Formal_Greeting__c</name>
+    </fields>
+    <fields>
+        <label>Haushalt Telefon</label>
+        <name>HouseholdPhone__c</name>
+    </fields>
+    <fields>
+        <help><!-- For Household Accounts, uses fields of non-excluded, ordered related Contacts. Generated automatically. --></help>
+        <label>Informelle Anrede</label>
+        <name>Informal_Greeting__c</name>
+    </fields>
+    <fields>
+        <label>Größtes Spende</label>
+        <name>LargestAmount__c</name>
+    </fields>
+    <fields>
+        <label>Datum des letzten Spende</label>
+        <name>LastCloseDate__c</name>
+    </fields>
+    <fields>
+        <label>Betrag der letzten Mitgliedschaft</label>
+        <name>LastMembershipAmount__c</name>
+    </fields>
+    <fields>
+        <label>Datum der letzten Mitgliedschaft</label>
+        <name>LastMembershipDate__c</name>
+    </fields>
+    <fields>
+        <label>Ebene der letzten Mitgliedschaft</label>
+        <name>LastMembershipLevel__c</name>
+    </fields>
+    <fields>
+        <label>Ursprung der letzten Mitgliedschaft</label>
+        <name>LastMembershipOrigin__c</name>
+    </fields>
+    <fields>
+        <label>Betrag des letzten Spende</label>
+        <name>LastOppAmount__c</name>
+    </fields>
+    <fields>
+        <label>Enddatum der Mitgliedschaft</label>
+        <name>MembershipEndDate__c</name>
+    </fields>
+    <fields>
+        <label>Beitrittsdatum der Mitgliedschaft</label>
+        <name>MembershipJoinDate__c</name>
+    </fields>
+    <fields>
+        <label>Gesamte Spendenanzahl</label>
+        <name>NumberOfClosedOpps__c</name>
+    </fields>
+    <fields>
+        <label>Anzahl der Mitgliedschaften</label>
+        <name>NumberOfMembershipOpps__c</name>
+    </fields>
+    <fields>
+        <label>Gesamt Spendensumme vor zwei Jahren</label>
+        <name>OppAmount2YearsAgo__c</name>
+    </fields>
+    <fields>
+        <label>Geschenke gesamt in den letzten N Tagen</label>
+        <name>OppAmountLastNDays__c</name>
+    </fields>
+    <fields>
+        <label>Gesamt Spendensumme im letzten Jahr</label>
+        <name>OppAmountLastYear__c</name>
+    </fields>
+    <fields>
+        <label>Gesamt Spendensumme in diesem Jahr</label>
+        <name>OppAmountThisYear__c</name>
+    </fields>
+    <fields>
+        <label>Anzahl der Geschenke vor zwei Jahren</label>
+        <name>OppsClosed2YearsAgo__c</name>
+    </fields>
+    <fields>
+        <label>Anzahl Geschenke in den letzten N Tagen</label>
+        <name>OppsClosedLastNDays__c</name>
+    </fields>
+    <fields>
+        <label>Anzahl der Geschenke letztes Jahr</label>
+        <name>OppsClosedLastYear__c</name>
+    </fields>
+    <fields>
+        <label>Anzahl der Geschenke dieses Jahr</label>
+        <name>OppsClosedThisYear__c</name>
+    </fields>
+    <fields>
+        <help><!-- For Household Accounts, specifies which name related fields should not be automatically populated by the Householding code. --></help>
+        <label>_SYSTEM: BENUTZERDEFINIERTE BENENNUNG</label>
+        <name>SYSTEM_CUSTOM_NAMING__c</name>
+        <picklistValues>
+            <masterLabel>Formal_Greeting__c</masterLabel>
+            <translation><!-- Formal_Greeting__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Informal_Greeting__c</masterLabel>
+            <translation><!-- Informal_Greeting__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Name</masterLabel>
+            <translation><!-- Name --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Kleinstes Spende</label>
+        <name>SmallestAmount__c</name>
+    </fields>
+    <fields>
+        <label>Gesamtbetrag der Mitgliedschaft</label>
+        <name>TotalMembershipOppAmount__c</name>
+    </fields>
+    <fields>
+        <label>Gesamt Spendensumme</label>
+        <name>TotalOppAmount__c</name>
+    </fields>
+</CustomObjectTranslation>

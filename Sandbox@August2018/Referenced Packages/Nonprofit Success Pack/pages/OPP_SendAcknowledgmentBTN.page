@@ -1,0 +1,41 @@
+<apex:page standardController="Opportunity" 
+    extensions="npsp.OPP_SendAcknowledgmentBTN_CTRL"
+    recordSetVar="listOpp"
+    action="{!SendAcknowledgment}"
+    standardStylesheets="true"
+    title="{!$Label.npsp__sendacknowledgmentpagetitle}"
+    docType="html-5.0">
+
+    <apex:slds />
+    
+    <apex:form id="vfForm">
+        <div class="slds-scope">
+            <!-- PAGE HEADER -->
+            <c:UTIL_PageHeader headerLabel="{!$ObjectType.Opportunity.Label}"
+                               header="{!$Label.npsp__sendacknowledgmentpagetitle}"
+                               icon="opportunity_120" iconCategory="standard"
+                               showSaveBtn="false" cancelLabel="{!$Label.npsp__bdibtnclose}"
+                               cancelAction="{!close}" cancelReRender="vfForm"/>
+
+            <!-- PAGE MESSAGE -->
+            <c:UTIL_PageMessages />
+            <!-- PAGE RETURN -->
+            <c:UTIL_NavigateBack recordId="{!recordId}" redirect="{!redirect}"/>
+            <!-- FAILED EMAILS -->
+            <apex:outputPanel rendered="{!cNotSent > 0}">
+                <div class="slds-grid">
+                    <div class="slds-col slds-size_1-of-1 slds-m-around_medium">
+                        <p class="slds-m-top_x-small slds-p-bottom_small"><apex:outputText value="{!$Label.npsp__sendacknowledgmentfailurereasons}" escape="false"/></p>
+                        <ul class="slds-list_dotted">
+                            <apex:repeat value="{!listOppNotSent}" var="opp">
+                                <li class="slds-item">
+                                    <a href="/{!opp.Id}" target="_blank">{!opp.Name}</a>
+                                </li>
+                            </apex:repeat>
+                        </ul>
+                    </div>
+                </div>
+            </apex:outputPanel>
+        </div>
+    </apex:form>
+</apex:page>

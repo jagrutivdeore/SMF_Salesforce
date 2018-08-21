@@ -1,0 +1,228 @@
+<!-- model -->
+
+<apex:page standardStylesheets="false" standardController="MV_Community__c" extensions="communityDetailCtrl" title="Popup Example" applyBodyTag="false" sidebar="false" showHeader="false" id="pageId">
+    
+    <head>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" ></script>
+        <style>
+            .container-fluid {
+            margin-top: 10px;
+            }
+            
+        </style>
+        
+    </head>
+    
+   <body>
+        <apex:form id="form">
+       
+            <div class="container-fluid">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="panel panel-success">
+                            <div class="panel-heading">Community Information
+                             <a href="/apex/SawandModelTable"  class="btn btn-info" role="button" target="_parent" style="float: right;">Back</a>
+                             </div>
+                             
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="aName">Name: </label>
+                                           
+                                            <apex:outputField value=" {!comm.Name}" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="aOwner">State: </label>
+                                           
+                                            <apex:outputField value=" {!comm.Community_State__c}" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="Type">District: </label>
+                                           
+                                            <apex:outputField value=" {!comm.Community_District__c}" />
+                                        </div>
+                                    </div>
+                                       <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="Type1">Taluka: </label>
+                                            
+                                            <apex:outputField value=" {!comm.Community_Taluka__c}" />
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                
+                                 <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="Type">Cluster: </label>
+                                            
+                                            <apex:outputField value=" {!comm.Community_Cluster__c}" />
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                 
+                                
+                            </div>
+                        </div>
+                       <div class="panel panel-info">
+                          <div class="panel-heading"><div>
+                                Related Post
+                                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal" style="float: right;">
+                                    <span class="glyphicon glyphicon-plus-sign" /> New
+                                </button>
+                                </div>
+                                 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                   <div class="modal-dialog" role="document">
+                                       <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                                                </button>
+                                                <h4 class="modal-title" id="myModalLabel">Add Post</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="form-group">
+                                                    <label>Title</label><br />
+                                                    <apex:inputField id="title" value="{!newcon.Title__c}" html-placeholder=" Enter Title" styleClass="form-control"/>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Description</label><br />
+                                                    <apex:inputField id="description" value="{!newcon.Description__c}" html-placeholder=" Enter Description" styleClass="form-control"/>
+                                                </div> 
+                                                
+                                                
+                                                
+                                                <div class="form-group">
+                                                    <label>Issue Type</label><br />
+                                                    <apex:inputField id="issueType" value="{!newcon.Issue_Type__c}" html-placeholder=" Enter Issue Type" styleClass="form-control"/>
+                                                </div>
+                                                
+                                                <div class="form-group">
+                                                <label>File:</label><br />
+                                                <label class="btn btn-primary" > Browse File 
+                                                    <apex:inputFile value="{!AttchBody}" accept="image/png,audio/mp3,video/mp4" contentType="{!theatcontentType}" styleclass="form-control" />
+                                                </label>
+                                                </div> 
+                                               
+                                            </div> 
+                                            
+                                            <div class="modal-footer">
+                                                <button type="button" id= "reset" class="btn btn-default" data-dismiss="modal" onclick="window.location.reload()" >Close</button>
+                                                <apex:commandButton styleclass="btn btn-primary" value="Save" action="{!addPost}"/> 
+                                              
+                                            </div>
+                                        </div>  
+                                    </div>
+                                </div>  
+                                
+                            </div> 
+                            <div class="panel-body">
+                                <apex:outputPanel id="contactTable">
+                                    <table class="table table-bordered">
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Title</th>
+                                            <th>Description</th>
+                                            <th>Like Count</th>
+                                            <th>Comment Count</th>
+                                            <th>User Name</th>
+                                            <th>Issue Type</th>
+                                            <th>State__c </th>
+                                            <th>District </th>
+                                            <th>Taluka </th>
+                                            <th>Status </th>
+                                        
+                                            <th>View/Delete </th>
+                                            
+                                        </tr>
+                                        
+                                        <apex:variable value="{!1}" var="rowNum"/>
+                                        
+                                        <apex:repeat value="{!conList}" var="conn">
+                                            <tr>
+                                                
+                                                <td>
+                                                {!counter + rowNum}
+                               					<apex:variable var="rowNum" value="{!rowNum + 1}"/>
+                                                </td>
+                                                
+                                                <td>
+                                                    <apex:outputField value="{!conn.Title__c}" />
+                                                </td>
+                                                <td>
+                                                    <apex:outputField value="{!conn.Description__c}" />
+                                                </td>
+                                                  <td>
+                                                    <apex:outputField value="{!conn.LIke_Count__c}" />
+                                                </td>
+                                                  <td>
+                                                    <apex:outputField value="{!conn.Comment_Count__c}" />
+                                                </td>
+                                                  <td>
+                                                    <apex:outputField value="{!conn.User_Name__c}" />
+                                                </td>
+                                                                                              
+                                                <td>
+                                                    <apex:outputField value="{!conn.Issue_Type__c}" />
+                                                </td>
+                                                
+                                                  <td>
+                                                    <apex:outputField value="{!conn.State__c}" />
+                                                </td>
+                                                  <td>
+                                                    <apex:outputField value="{!conn.District__c}" />
+                                                </td>
+                                                 <td>
+                                                    <apex:outputField value="{!conn.Taluka__c}" />
+                                                </td>
+                                                
+                                              
+                                                
+                                                <td>
+                                                    <apex:outputField value="{!conn.Status__c}" />
+                                                </td>
+                                                
+                                                 <td>
+                                                     <apex:outputLink value="/apex/SawandModel?id={!conn.Id}" id="theLink">view</apex:outputLink>
+                                                		
+                                                     
+                                                     <apex:actionRegion id="area511" renderRegionOnly="false">
+                                            <apex:commandlink value="/Delete" action="{!DeleteContent}" rendered="{!userList1[0].ID == conn.MV_User__c || rl[0].canDeletePostAndComment__c == true }">
+                                      <apex:param name="contentId" value="{!conn.Id}" assignTo="{!contentId}"/>
+                                       </apex:commandlink>
+                                      </apex:actionRegion>
+                                             
+                                                
+                                                
+                                                </td>
+                                          
+                                            </tr>
+                                        </apex:repeat>
+                                    </table>
+                                            <apex:commandButton value="Previous" action="{!previous}" disabled="{!DisablePrevious}"/>
+                        					<apex:commandButton value="Next" action="{!next}" disabled="{!DisableNext}" />
+
+                                </apex:outputPanel>
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+		                       
+        </apex:form> 
+        
+        
+    </body>
+    
+</apex:page>

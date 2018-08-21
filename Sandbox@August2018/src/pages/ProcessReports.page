@@ -1,0 +1,18 @@
+<apex:page controller="ProcessReportsController">
+    <apex:form >
+    
+    <apex:outputText >Select Process </apex:outputText>
+    
+    <apex:selectList size="1" value="{!selectProcess}"> 
+        <apex:selectOptions value="{!selectedProcess}"/>  
+    </apex:selectList>
+    
+    <apex:commandButton value="Download Report" action="{!DownloadReport}"/>
+    
+        <apex:pageBlock >
+            <apex:pageBlockTable value="{!ProcessAnsList}" var="rec">  
+            </apex:pageBlockTable> 
+        </apex:pageBlock>
+    
+    </apex:form>
+</apex:page>

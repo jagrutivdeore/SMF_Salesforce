@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value><!-- GAU Allocation --></value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value><!-- GAU Allocation --></value>
+    </caseValues>
+    <fields>
+        <help><!-- Amount of the opportunity to allocate to this general accounting unit. Leave blank for percent based allocations. --></help>
+        <label>Cuenta</label>
+        <name>Amount__c</name>
+    </fields>
+    <fields>
+        <help><!-- Optionally attributes allocations to a campaign. All new opportunities created with this campaign as primary campaign source will automatically be allocated in the same way. --></help>
+        <label>Campaña</label>
+        <name>Campaign__c</name>
+        <relationshipLabel>Asignación CCG</relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- The general accounting unit to attribute this allocation. Only general accounting units marked as active are available for new allocations. --></help>
+        <label>Cuenta Contable General</label>
+        <lookupFilter>
+            <errorMessage>Asignaciones solo pueden ser asignadas a cuentas contables generales activadas. Asignaciones asignadas a cuentas contables inactivas no pueden ser modificadas.</errorMessage>
+            <informationalMessage>Solo cuentas contables activadas pueden ser seleccionadas.</informationalMessage>
+        </lookupFilter>
+        <name>General_Accounting_Unit__c</name>
+        <relationshipLabel>Asignación CCG</relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Attributes allocations to an opportunity. All opportunities in a closed and won stage will be rolled up to this allocation&apos;s general accounting unit. --></help>
+        <label>Oportunidad</label>
+        <name>Opportunity__c</name>
+        <relationshipLabel>Asignación CCG</relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Percent of opportunity amount to allocate to this general accounting unit. Modifying an opportunity amount of a percent based allocation will modify the allocation amount. --></help>
+        <label>Porcentaje</label>
+        <name>Percent__c</name>
+    </fields>
+    <fields>
+        <help><!-- Optionally attributes allocations to a recurring donation. All new opportunities created with this recurring donation schedule will automatically be allocated in the same way. --></help>
+        <label>Donación Recurrente</label>
+        <name>Recurring_Donation__c</name>
+        <relationshipLabel>Asignación CCG</relationshipLabel>
+    </fields>
+    <gender><!-- Feminine --></gender>
+    <nameFieldLabel><!-- GAU Allocation Name --></nameFieldLabel>
+    <webLinks>
+        <label>Gestionar asignaciones</label>
+        <name>Manage_Allocations</name>
+    </webLinks>
+</CustomObjectTranslation>

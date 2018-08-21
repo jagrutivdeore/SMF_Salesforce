@@ -1,0 +1,70 @@
+<apex:page Controller="ProcessReportsControllerAnil" showHeader="false" sidebar="false" readOnly="true" >
+    <apex:form >
+        
+             <apex:actionStatus id="status">
+        <apex:facet name="start">
+            <div style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; opacity: 0.25; z-index: 1000; background-color: black;">
+                &nbsp;
+            </div>
+            <div style="position: fixed; left: 0; top: 0; bottom: 0; right: 0; z-index: 1001; margin: 15% 50%">
+                <div style="display: inline-block; padding: 2px; background-color: #fff; width: 125px;">
+                    <img src="/img/loading.gif" style="float: left; margin: 8px;" />
+                    <span style="display: inline-block; padding: 10px 0px;">Please Wait..</span>
+                </div>
+            </div>
+        </apex:facet>
+    </apex:actionStatus>
+        <apex:pageBlock >
+            <apex:actionFunction name="change" action="{!displayData}" reRender="pb" status="status"/>
+            
+            <apex:selectList value="{!selectProcess}" size="1" onchange="change()" >
+                <apex:selectOptions value="{!selectedProcess}"/>    
+                    
+            </apex:selectList>
+            <apex:commandButton value="Download Report" action="{!DownloadExcelReport}"/>
+        </apex:pageBlock>
+        
+        
+        
+        <apex:pageBlock id="pb" >
+            <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-table_col-bordered" cellspacing="0" cellpadding="6" border="1">
+                <tr bgcolor="#B3C7E4">
+                    <apex:repeat value="{!listOfText1}" var="str" >
+                        <th>{!str}</th>
+                    </apex:repeat>
+                </tr>
+                <tbody>
+                    <apex:repeat value="{!PAList1}" var="pa" >
+                        <tr>
+                            <apex:repeat value="{!listOfAPI1}" var="att" >
+                                
+                                <td>{!pa[att]}</td>
+                                
+                            </apex:repeat>
+                        </tr>
+                    </apex:repeat>
+                </tbody>
+            </table>
+            
+            
+            <br/><br/>
+            <div>
+                <apex:panelGroup >
+                    <apex:commandLink action="{!First}" reRender="pb" value="<<" style="text-decoration:none" >             
+                        <!--<apex:image value="{!$Resource.First}" height="20px" width="60px" title="First" />-->
+                    </apex:commandLink>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <apex:commandLink action="{!Previous}" reRender="pb" value="<" style="text-decoration:none" rendered="{!hasPrevious}">             
+                        <!-- <apex:image value="{!$Resource.Previous}" height="20px" width="40px" title="Previous" rendered="{!hasPrevious}"/>-->
+                    </apex:commandLink>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <apex:outputLabel style="font-size:10px; margin-bottom:0px;" > Page No#&nbsp;{!pageno1} </apex:outputLabel>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <apex:commandLink action="{!Next}" reRender="pb" value=">" style="text-decoration:none" rendered="{!hasNext}">             
+                        <!--apex:image value="{!$Resource.Next}" height="20px" width="40px" title="Next" rendered="{!hasNext}"/>-->
+                    </apex:commandLink>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <apex:commandLink action="{!Last}" reRender="pb" value=">>" style="text-decoration:none">             
+                        <!--<apex:image value="{!$Resource.Last}" height="20px" width="60px" title="Last" />-->
+                    </apex:commandLink>&nbsp;&nbsp;&nbsp;&nbsp;
+                </apex:panelGroup>
+            </div>
+        </apex:pageBlock> 
+    </apex:form>
+</apex:page>

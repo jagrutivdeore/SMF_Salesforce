@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label>Donación promedio</label>
+        <name>AverageAmount__c</name>
+    </fields>
+    <fields>
+        <label>Total en año de mejor donación</label>
+        <name>Best_Gift_Year_Total__c</name>
+    </fields>
+    <fields>
+        <label>Año de mejor donación</label>
+        <name>Best_Gift_Year__c</name>
+    </fields>
+    <fields>
+        <label>Fecha de primera donación</label>
+        <name>FirstCloseDate__c</name>
+    </fields>
+    <fields>
+        <label>Dirección del Hogar</label>
+        <name>Formula_HouseholdMailingAddress__c</name>
+    </fields>
+    <fields>
+        <label>Teléfono del Hogar</label>
+        <name>Formula_HouseholdPhone__c</name>
+    </fields>
+    <fields>
+        <label>Orden en el nombre de la familia</label>
+        <name>Household_Naming_Order__c</name>
+    </fields>
+    <fields>
+        <label>Hogar</label>
+        <name>Household__c</name>
+        <relationshipLabel>Miembros del Hogar</relationshipLabel>
+    </fields>
+    <fields>
+        <label>Monto de la mayor donación</label>
+        <name>LargestAmount__c</name>
+    </fields>
+    <fields>
+        <label>Fecha de última donación de la familia</label>
+        <name>LastCloseDateHH__c</name>
+    </fields>
+    <fields>
+        <label>Fecha de última donación</label>
+        <name>LastCloseDate__c</name>
+    </fields>
+    <fields>
+        <label>Monto de última membresía</label>
+        <name>LastMembershipAmount__c</name>
+    </fields>
+    <fields>
+        <label>Fecha de última membresía</label>
+        <name>LastMembershipDate__c</name>
+    </fields>
+    <fields>
+        <label>Nivel de última membresía</label>
+        <name>LastMembershipLevel__c</name>
+    </fields>
+    <fields>
+        <label>Origen de última membresía</label>
+        <name>LastMembershipOrigin__c</name>
+    </fields>
+    <fields>
+        <label>Monto de última donación</label>
+        <name>LastOppAmount__c</name>
+    </fields>
+    <fields>
+        <label>Fecha de fin de membresía</label>
+        <name>MembershipEndDate__c</name>
+    </fields>
+    <fields>
+        <label>Fecha de inicio de membresía</label>
+        <name>MembershipJoinDate__c</name>
+    </fields>
+    <fields>
+        <help><!-- Determines which household names this contact is NOT included as part of. --></help>
+        <label>Exclusión en el nombres de familia</label>
+        <name>Naming_Exclusions__c</name>
+        <picklistValues>
+            <masterLabel>Household__c.Formal_Greeting__c</masterLabel>
+            <translation><!-- Household__c.Formal_Greeting__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Household__c.Informal_Greeting__c</masterLabel>
+            <translation><!-- Household__c.Informal_Greeting__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Household__c.Name</masterLabel>
+            <translation><!-- Household__c.Name --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Cantidad de donaciones</label>
+        <name>NumberOfClosedOpps__c</name>
+    </fields>
+    <fields>
+        <label>Cantidad de membresías</label>
+        <name>NumberOfMembershipOpps__c</name>
+    </fields>
+    <fields>
+        <label>Total donado hace dos años</label>
+        <name>OppAmount2YearsAgo__c</name>
+    </fields>
+    <fields>
+        <label>Total donado últimos N días</label>
+        <name>OppAmountLastNDays__c</name>
+    </fields>
+    <fields>
+        <label>Total donado por familia el año pasado</label>
+        <name>OppAmountLastYearHH__c</name>
+    </fields>
+    <fields>
+        <label>Total donando el año pasado</label>
+        <name>OppAmountLastYear__c</name>
+    </fields>
+    <fields>
+        <label>Total donado por familia este año</label>
+        <name>OppAmountThisYearHH__c</name>
+    </fields>
+    <fields>
+        <label>Total donado este año</label>
+        <name>OppAmountThisYear__c</name>
+    </fields>
+    <fields>
+        <label>Cantidad de donaciones hace dos años</label>
+        <name>OppsClosed2YearsAgo__c</name>
+    </fields>
+    <fields>
+        <label>Cantidad de donaciones últimos N días</label>
+        <name>OppsClosedLastNDays__c</name>
+    </fields>
+    <fields>
+        <label>Cantidad de donaciones el año pasado</label>
+        <name>OppsClosedLastYear__c</name>
+    </fields>
+    <fields>
+        <label>Cantidad de donaciones este año</label>
+        <name>OppsClosedThisYear__c</name>
+    </fields>
+    <fields>
+        <label>Monto de la menor donación</label>
+        <name>SmallestAmount__c</name>
+    </fields>
+    <fields>
+        <help><!-- Total soft credit amount last year. --></help>
+        <label>Crédito blando el año pasado</label>
+        <name>Soft_Credit_Last_Year__c</name>
+    </fields>
+    <fields>
+        <help><!-- Total soft credit amount this year --></help>
+        <label>Crédito blando este año</label>
+        <name>Soft_Credit_This_Year__c</name>
+    </fields>
+    <fields>
+        <help><!-- Total amount in soft credits for this Contact&apos;s lifetime. Defined in the Household Settings tab. --></help>
+        <label>Total crédito blando</label>
+        <name>Soft_Credit_Total__c</name>
+    </fields>
+    <fields>
+        <help><!-- Total soft credit amount two years ago. --></help>
+        <label>Crédito blando hace dos años</label>
+        <name>Soft_Credit_Two_Years_Ago__c</name>
+    </fields>
+    <fields>
+        <label><!-- _SYSTEM: HOUSEHOLD PROCESSOR-DEPRECATED --></label>
+        <name>SystemHouseholdProcessor__c</name>
+        <picklistValues>
+            <masterLabel>All Individual Contacts</masterLabel>
+            <translation><!-- All Individual Contacts --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>All New or Edited Contacts</masterLabel>
+            <translation><!-- All New or Edited Contacts --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No Contacts</masterLabel>
+            <translation><!-- No Contacts --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Monto total de membresías</label>
+        <name>TotalMembershipOppAmount__c</name>
+    </fields>
+    <fields>
+        <label>Total donado</label>
+        <name>TotalOppAmount__c</name>
+    </fields>
+    <fields>
+        <label>Total donado por la familia</label>
+        <name>Total_Household_Gifts__c</name>
+    </fields>
+    <webLinks>
+        <label>Copiar dirección en la familia</label>
+        <name>Copy_Address_to_Household</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Household --></label>
+        <name>Household</name>
+    </webLinks>
+</CustomObjectTranslation>

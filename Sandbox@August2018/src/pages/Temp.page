@@ -1,0 +1,11 @@
+<apex:page standardController="MV_Content__c" extensions="Temp1" sidebar="false">
+<apex:form id="formId">
+<apex:actionRegion >
+    <apex:pageBlock title="Test Page" id="PBId">
+        <div align="Center">
+        <b><h1> Broadcast </h1></b>
+        </div>
+    </apex:pageBlock>
+</apex:actionRegion>
+</apex:form>
+</apex:page>

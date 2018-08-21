@@ -1,0 +1,14 @@
+<apex:page Controller="sendNotificationMsg" sidebar="false">
+ <apex:form id="form1">
+ <apex:pageblock >
+Title:  <apex:inputText label="Title: " value="{!title}" id="txtusername1"/>
+<br/>
+<br/>
+ Description:  <apex:inputText label="Description: " value="{!description}" id="txtusername"/>
+<br/>
+<br/>
+ <apex:commandButton action="{!submitdata}" id="editButton" value="Send Notofication"/>
+ 
+ </apex:pageblock>
+ </apex:form>
+ </apex:page>

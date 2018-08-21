@@ -1,0 +1,177 @@
+<apex:page standardController="MV_TraineeFeedback__c" extensions="MV_FeedBackReports">
+ <apex:form id="form1">
+     <apex:actionRegion >
+         <apex:pageBlock id="pblockid" >
+             <div align="Center"> 
+                 <b><h6>
+                     Analysis Of Received Trainee Feedback Until Today Of Taluka Level Training
+                     </h6></b>
+             </div>
+                <br /><br />
+            <apex:actionfunction name="setValueToState" action="{!checkStateValue}" rerender="form1,actStatusId,talId,outPutId,pieChart1,pieChart2,areaId,talId,distId,table1,divId,headingTitle,pieChartId,chID"/>
+            
+               <apex:actionfunction name="setValueToDist" action="{!setValueToDist}" rerender="form1,actStatusId,talId,outPutId,pieChart1,pieChart2,areaId,talId,distId,table1,divId,headingTitle,pieChartId,chID"/>
+             
+                 <apex:actionfunction name="setValueToTal" action="{!checkTalValue}" rerender="form1,actStatusId,talId,outPutId,pieChart1,pieChart2,areaId,talId,distId,table1,divId,headingTitle,pieChartId,chID"/> 
+                 
+            <!-- <apex:actionfunction name="setValueToState" action="{!checkStateValue}" rerender="form1,talId,outPutId,pieChart1,,pieChart2,table1,divId,headingTitle,pieChartId"/>
+               <apex:actionfunction name="setValueToDist" action="{!setValueToDist}" rerender="form1,talId,outPutId,pieChart1,,pieChart2,table1,divId,headingTitle,pieChartId"/>
+             
+                 <apex:actionfunction name="setValueToTal" action="{!checkTalValue}" rerender="form1,talId,outPutId,pieChart1,,pieChart2,table1,divId,headingTitle,pieChartId"/> -->
+             <apex:actionfunction name="fetchTraineeData" action="{!fetchTraineeDataFromDatabase}" rerender="form1,actStatusId,talId,outPutId,pieChart1,,pieChart2,table1,divId,headingTitle,pieChartId,chID,fileterId,filetertal"/>
+             
+             <apex:pageBlockSection columns="2" title="Location Criteria">
+         
+        <apex:selectList label="State" value="{!State}" multiselect="false" size="1" onchange="setValueToState()">
+            <apex:selectOptions value="{!stateList}"/>
+        </apex:selectList>
+        <apex:selectList label="District" value="{!dist}" multiselect="false" size="1" onchange="setValueToDist()" id="distId">
+            <apex:selectOptions value="{!District}"/>
+        </apex:selectList>
+         <apex:selectList label="Taluka" id="talId" value="{!tal}" multiselect="false" size="1" onchange="setValueToTal()">
+            <apex:selectOptions value="{!Taluka}"/>
+        </apex:selectList>
+          <apex:selectList label="Session" id="areaId" value="{!qustionArea}" multiselect="false" size="1" onchange="fetchTraineeData()">
+            <apex:selectOptions value="{!Section}"/>
+        </apex:selectList>
+            <apex:actionStatus id="actStatusId" >
+                <apex:facet name="start" >
+                 <apex:outputText label="Loading....."/>                 
+                </apex:facet>
+            </apex:actionStatus>
+            
+            
+            </apex:pageBlockSection>  
+            
+        <apex:pageBlockSection columns="3" title="Filter Criteria"> 
+             <apex:selectList label="Fileter Type" id="fileterId1" value="{!filterType}" multiselect="false" size="1">
+            <apex:selectOptions value="{!Filtertyprcluase}"/>
+        </apex:selectList>
+        
+         <apex:selectList label="Fileter On" id="fileterId2" value="{!filterOn}" multiselect="false" size="1">
+            <apex:selectOptions value="{!filterOnList}"/>
+        </apex:selectList>
+        
+          <apex:selectList label="Fileter" id="fileterId" value="{!filterclouse}" multiselect="false" size="1" onchange="fetchTraineeData()">
+            <apex:selectOptions value="{!Filtercluase}"/>
+        </apex:selectList>
+        
+         <apex:outputLabel > Taluka Name:  {!talukaList}
+               </apex:outputLabel>
+               
+        <apex:actionStatus id="actStatusId" >
+                <apex:facet name="start" >
+                 <apex:outputText label="Loading....."/>                 
+                </apex:facet>
+            </apex:actionStatus>
+            
+            
+                 </apex:pageBlockSection>        
+             
+             </apex:pageBlock>
+             </apex:actionRegion>                   
+
+             </apex:form>
+             
+        <apex:pageBlock title="{! IF(pieData1.size > 0,'' , '') }" id="pieChartId">
+         
+            <apex:pageBlockSection id="divId" columns="2">
+            
+                  
+                {! IF(qustionArea == '1 मूल्यवर्धन कार्यक्रम',
+                     'Caption: मूल्यवर्धन कार्यक्रमाची आवश्यकता, उद्देश, स्वरूप, अभ्यासक्रम आणि अध्ययन निष्पत्ती याबद्दलचे प्रशिक्षणार्थीची मते','') }
+
+              {!IF(qustionArea == '2 शिक्षक व विद्यार्थ्यांसाठी उपयुक्त संदर्भ साहित्य',
+                     'Caption: इयत्ता १ ली ते ४ थी शिक्षक उपक्रम पुस्तिका, विद्यार्थी उपक्रम पुस्तिका आणि वर्ग उपक्रमांचे नियोजन मार्गदर्शिका','')}
+                     
+               {!IF(qustionArea == '3 अध्ययन पद्धती',
+                     'Caption: ज्ञानरचनावादावर आधारित - सहयोगी रचना, सहयोगी खेळ, जोडीचर्चा-गटचर्चा, या पद्धतींचा वापर करून  विद्यार्थीकेंद्रित व बालस्नेही अध्ययन पद्धतीचे नियोजन','')}
+                     
+              {!IF(qustionArea == '4 कार्यशाळेचा उद्देश पूर्ण झाला का ?',
+                     'Caption: काही प्रतिक्रिया','')}
+                     <br/>
+                      <apex:outputLabel >
+               </apex:outputLabel>
+                     
+                 <apex:outputLabel >Session:  {! IF(qustionArea == 'Select','Not Selected',qustionArea) }
+               </apex:outputLabel>
+                     
+                 <apex:outputLabel >Session Code:  {!displayTaluka}
+               </apex:outputLabel>
+
+                
+               <apex:outputLabel >State:  {! IF(state == 'Select','Not Selected',state) }
+               </apex:outputLabel>
+               
+                <apex:outputLabel >Number Of Feedback:  {!totalFeedBackCount}
+               </apex:outputLabel>
+               
+               
+                     
+                <apex:outputLabel >District:  {! IF(dist == 'Select','Not Selected',dist) }
+               </apex:outputLabel>
+               
+                  <apex:outputLabel >Session Date:
+                                        
+                <apex:outputText label="Session Date:" value="{0, date, dd','MM',' yyyy}">
+                    <apex:param value="{! startDate}" /> 
+                </apex:outputText> to 
+                 <apex:outputText label="Session Date:" value="{0, date, dd','MM ',' yyyy}">
+                    <apex:param value="{!EndDate}" /> 
+                </apex:outputText><br/>
+               </apex:outputLabel>
+               
+                     
+                     <apex:outputLabel >Taluka:  {! IF(tal == 'Select','Not Selected',tal) }
+               </apex:outputLabel>
+                 
+                <apex:outputLabel >Number Of Taluka:  {!totalTaluka}
+               </apex:outputLabel>
+                
+                </apex:pageBlockSection>
+                   
+                   
+            <apex:pageBlockSection id="chID">
+                   <div align="center" draggable="false" >
+                       
+ 
+                  <apex:chart height="650" width="650" data="{! IF(pieData1.size > 0, pieData1, '') }" id="pieChart1" >
+                 <apex:pieSeries dataField="data" labelField="name">
+                   
+                </apex:pieSeries>    
+                <apex:legend position="right"/>
+                    
+                </apex:chart> 
+                
+                </div>
+                   
+             </apex:pageBlockSection>
+            
+            <apex:pageBlockSection id="table1"  columns="1">
+            
+            <apex:pageblocktable value="{!FeedBackInDetail}" var="cnt" rendered="{!FeedBackInDetail != null}" width="100%">
+                        <apex:variable var="rowNo" value="{!0}" />
+                
+                <apex:column headerValue="Number" width="2%">
+                    <apex:variable var="rowNo" value="{!rowNo+1}"/>
+                    {!rowNo-1}
+                </apex:column>
+              <!-- <apex:column >
+                    <apex:facet name="header">NANANAN</apex:facet>
+                    {!FeedBackInDetail != null}
+                </apex:column> -->
+                
+                <apex:column headerValue="Feed Back Detail" width="50%">
+                {!cnt.AseKaWatate__c}
+                 <!--<apex:facet name="header">Feed Back Detail</apex:facet>
+                        {!cnt.AseKaWatate__c} -->
+            </apex:column>
+             
+            </apex:pageblocktable>
+                </apex:pageBlockSection>
+            
+
+        </apex:pageBlock>
+
+
+</apex:page>

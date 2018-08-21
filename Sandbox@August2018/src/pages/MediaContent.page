@@ -1,0 +1,10 @@
+<apex:page sidebar="false" tabStyle="Media_Content__c">
+    <apex:form >
+        <apex:pageBlock title="Social Media Posts">
+            <apex:pageBlockSection title="Facebook Post Details"> 
+               
+                <apex:inputtextarea richtext="true" id="Body" cols="100" rows="15"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

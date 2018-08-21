@@ -1,0 +1,53 @@
+<apex:page standardController="MV_Content__c" extensions="broadcastController" sidebar="=false">
+ <apex:form id="form1">
+    <apex:actionRegion >
+         <apex:pageBlock id="pblockid" >
+             <div align="Center"> 
+                 <b><h1>
+                     Broadcast Post
+                     </h1></b>
+             </div>
+                <br /><br />
+            <apex:actionfunction name="setValueToState" action="{!checkStateValue}" rerender="distId,talId,areaId"/>
+            
+               <apex:actionfunction name="setValueToDist" action="{!checkTalValue}" rerender="talId,areaId"/>
+             
+                 <apex:actionfunction name="setValueToTal" action="{!checkTalValue}" rerender="areaId"/> 
+              
+            
+             <apex:pageBlockSection columns="2">
+         
+                <apex:selectList label="State" value="{!State}" multiselect="false" size="1" onchange="setValueToState()">
+                    <apex:selectOptions value="{!stateList}"/>
+                </apex:selectList>
+                <apex:selectList label="District" value="{!dist}" multiselect="false" size="1" onchange="setValueToDist()" id="distId">
+                    <apex:selectOptions value="{!District}"/>
+                </apex:selectList>
+                 <apex:selectList label="Taluka" id="talId" value="{!tal}" multiselect="false" size="1" onchange="setValueToTal()">
+                    <apex:selectOptions value="{!Taluka}"/>
+                </apex:selectList>
+                  <apex:selectList label="Village" id="areaId" value="{!qustionArea}" multiselect="false" size="1">
+                    <apex:selectOptions value="{!cluster}"/>
+                </apex:selectList>
+                 <apex:inputField value="{!content.Title__c}"/>
+                <apex:inputField value="{!content.Description__c}"/>
+                <apex:inputField value="{!content.Broadcase_Role__c}"/>
+
+          </apex:pageBlockSection> 
+            
+            <apex:pageBlockButtons id="detailButtons">
+             <apex:actionRegion >
+                  <apex:commandButton action="{!saveAndReturn}" value="Save" />
+                     </apex:actionRegion>
+            </apex:pageBlockButtons>
+        
+        </apex:pageBlock>
+              </apex:actionRegion>
+             
+             <apex:pageBlock title="Upload a File">      
+                <apex:inputFile value="{!attachment.body}" filename="{!attachment.name}" id="file"/>
+             </apex:pageBlock>
+ 
+                               
+ </apex:form>     
+</apex:page>

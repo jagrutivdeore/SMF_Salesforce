@@ -1,0 +1,134 @@
+<apex:page sidebar="false" cache="false" showHeader="false" standardStylesheets="false" controller="newTraining" docType="html-5.0" >
+  
+     <apex:stylesheet value="{!URLFOR($Resource.newtraing,'MV_Pravin/bootstrap.css')}"/>
+ <apex:form >
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+  <script>
+   $(function() {
+       $("#myModal").modal();
+    });
+    
+    function refresPage()
+    {
+     location.reload();
+    }
+  </script>
+  <style>
+      background-color:#FF4081;
+  </style>
+</head>
+<body>
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content row">
+                        <div class="modal-header custom-modal-header">
+                   
+                    </div>
+                      
+                      <div class="modal-body">
+                        <div class="row">
+                                    <div class="col-md-12 col-sm-12">
+                                      <div class="input-group">
+                                        <span class="input-group-addon"> Name : </span>
+                                        <apex:inputtext value="{!name}" styleClass="form-control input-lg" id="name"/>
+                                      </div>
+                                    </div>
+                                </div>
+                                <br/>
+                                <div class="row">
+                                    <div class="col-md-12 col-sm-12">
+                                      <div class="input-group">
+                                        <span class="input-group-addon"> Date : </span>
+                                        <!-- <apex:inputfield value="{!train.Training_Date__c}" id="TrainingDate" styleClass="form-control input-lg"/> -->
+                                        <apex:input type="date" value="{!TrainingDate}" styleClass="form-control input-lg"/>
+                                      </div>
+                                    </div>
+                                </div>
+                                <br/>
+                                <div class="row">
+                                    <div class="col-md-12 col-sm-12">
+                                      <div class="input-group">
+                                        <span class="input-group-addon"> District : </span>                 
+                                       <!--<apex:selectList value="{!District1}" multiselect="false" size="1" styleClass="form-control input-lg">
+                                            <apex:selectOptions value="{!District}"/>
+                                      </apex:selectList> -->
+                                     <apex:inputField value="{!train.District__c}" id="District" styleClass="form-control input-lg" />
+                                      </div>
+                                    </div>
+                                </div>
+                                <br/>
+                                <div class="row">
+                                    <div class="col-md-12 col-sm-12">
+                                      <div class="input-group">
+                                        <span class="input-group-addon"> Taluka: </span>
+                                     
+                                       <!--<apex:selectList value="{!Taluka1}" multiselect="false" size="1" styleClass="form-control input-lg">
+                                            <apex:selectOptions value="{!Taluka}"/>
+                                      </apex:selectList>  -->
+                                       
+                                     <apex:inputField value="{!train.Taluka__c}" id="Taluka" styleClass="form-control input-lg" />
+                                      </div>
+                                    </div>
+                                </div>
+                                <br/>
+                                <div class="row">
+                                    <div class="col-md-12 col-sm-12">
+                                      <div class="input-group">
+                                        <span class="input-group-addon"> Cluster: </span>
+                                     
+                                      <!-- <apex:selectList value="{!Cluster1}" multiselect="false" size="1" styleClass="form-control input-lg">
+                                            <apex:selectOptions value="{!Cluster}"/>
+                                      </apex:selectList>--> 
+                                      <apex:inputField value="{!train.Cluster__c}" id="Cluster" styleClass="form-control input-lg"  />
+                                      </div>
+                                    </div>
+                                </div>
+                                <br/>
+                                <div class="row">
+                                    <div class="col-md-12 col-sm-12">
+                                      <div class="input-group">
+                                         <span class="input-group-addon"> Training Type: </span>
+                                     
+                                       <!--<apex:selectList value="{!TrainingType1}" multiselect="false" size="1" styleClass="form-control input-lg">
+                                            <apex:selectOptions value="{!TrainingType}"/>
+                                      </apex:selectList>  -->  
+                                      <apex:inputField value="{!train.Training_Type__c}" id="TrainingType" styleClass="form-control input-lg" />
+                                      </div>
+                                    </div>
+                                </div>
+                                <br/>
+                                <div class="row">
+                                    <div class="col-md-12 col-sm-12">
+                                      <div class="input-group">
+                                        <span class="input-group-addon"> Batch No: </span>
+                                     
+                                      <!-- <apex:selectList value="{!BatchNo1}" multiselect="false" size="1" styleClass="form-control input-lg">
+                                            <apex:selectOptions value="{!BatchNo}"/>
+                                      </apex:selectList> -->
+                                      <apex:inputField value="{!train.Batch_No__c}" id="BatchNo" styleClass="form-control input-lg" />
+                                      </div>
+                                    </div>
+                                </div>
+                                <br/>
+                                <div class="row">
+                                    <div class="col-md-12 col-sm-12" align="center">
+                                      <div class="input-group" align="center">                                       
+                                    <apex:commandButton value="Submit" action="{!save}" onclick="refresPage();" styleClass="btn btn-lg" style="background-color:#FF4081;color:white;font-style:bold;"/>
+                                      </div>
+                                    </div>
+                                </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+</body>
+</html>
+</apex:form>  
+</apex:page>

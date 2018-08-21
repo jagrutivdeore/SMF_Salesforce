@@ -1,0 +1,33 @@
+<apex:page standardcontroller="MV_Content__c" extensions="ContentManagementController" readonly="false">  
+    <apex:form >
+        <apex:pageBlock mode="edit" id="block">
+           
+            <apex:pageMessages />
+
+            <apex:pageBlockSection title="Search" columns="2">
+               
+                 <apex:selectList label="Issue Type" id="talId" value="{!State}" multiselect="false" size="1">
+                    <apex:selectOptions value="{!IssueTypeList}"/>
+                </apex:selectList>
+        
+        
+                  <apex:selectList label="Priority" id="areaId" value="{!qustionArea}" multiselect="false" size="1">
+                    <apex:selectOptions value="{!PriorityList}"/>
+                </apex:selectList>
+
+                 <apex:pageBlockSectionItem >
+                 <apex:outputLabel for="searchText">Assined Name :</apex:outputLabel>
+                  <apex:panelGroup >
+                     <apex:inputfield label="Assined Name" value="{!conId.User__c}"/>.
+                        </apex:panelGroup>
+                </apex:pageBlockSectionItem>
+                
+                <div align="center" draggable="false" >
+                    <apex:commandButton action="{!updateRecords}" value="Update" />
+                </div>
+                 </apex:pageBlockSection>
+                
+              
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

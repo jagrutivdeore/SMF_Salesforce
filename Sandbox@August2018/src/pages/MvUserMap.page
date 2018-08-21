@@ -1,0 +1,42 @@
+<apex:page controller="MvUsersMap_ctl" sidebar="false" showHeader="false">
+<html> 
+<head> 
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" /> 
+  <title>Google Maps Multiple Markers</title> 
+  <script src="http://maps.google.com/maps/api/js?sensor=false" 
+          type="text/javascript"></script>
+</head> 
+<body>
+    <div style="padding:50px">
+        <div id="map" style="height:500px"></div>
+    </div>
+  <script type="text/javascript">
+    var locations  = JSON.parse('{!jsonData}');
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 10,
+      center: new google.maps.LatLng(18.523056,73.861944),
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+
+    var infowindow = new google.maps.InfoWindow();
+
+    var marker, i;
+
+    for (i = 0; i < locations.length; i++) {  
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i].lat,locations[i].lon),
+        map: map,
+        title: locations[i].title
+      });
+
+      google.maps.event.addListener(marker, 'mouseover', (function(marker, i) {
+        return function() {
+            infowindow.setContent('<b>Name :</b> '+locations[i].title+'</br><b>Role :</b> '+locations[i].des+'</br><b>Address :</b> '+locations[i].loc+'</br><b>Last Seen :</b> '+locations[i].lastSeen);
+          infowindow.open(map, marker);
+        }
+      })(marker, i));
+    }
+  </script>
+</body>
+</html>
+</apex:page>

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <caseType>Nominative</caseType>
+        <plural>false</plural>
+        <value>Freiwilligenstunde</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Nominative</caseType>
+        <plural>true</plural>
+        <value>Freiwilligenstunden</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Accusative</caseType>
+        <plural>false</plural>
+        <value>Freiwilligenstunde</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Accusative</caseType>
+        <plural>true</plural>
+        <value>Freiwilligenstunden</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Genitive</caseType>
+        <plural>false</plural>
+        <value>Freiwilligenstunde</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Genitive</caseType>
+        <plural>true</plural>
+        <value>Freiwilligenstunden</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Dative</caseType>
+        <plural>false</plural>
+        <value>Freiwilligenstunde</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Dative</caseType>
+        <plural>true</plural>
+        <value>Freiwilligenstunden</value>
+    </caseValues>
+    <fields>
+        <label>Kommentare</label>
+        <name>Comments__c</name>
+    </fields>
+    <fields>
+        <label>Kontakt</label>
+        <name>Contact__c</name>
+        <relationshipLabel>Freiwilligenstunden</relationshipLabel>
+    </fields>
+    <fields>
+        <label>Enddatum</label>
+        <name>End_Date__c</name>
+    </fields>
+    <fields>
+        <label>Vollständiger Name</label>
+        <name>Full_Name__c</name>
+    </fields>
+    <fields>
+        <label>Gearbeitete Stunden</label>
+        <name>Hours_Worked__c</name>
+    </fields>
+    <fields>
+        <help><!-- Defaults to 1. Increase if this person is bringing additional people whom you are not directly tracking as contacts, and won&apos;t be logging individual volunteer hours against. --></help>
+        <label>Anzahl der Freiwilligen</label>
+        <name>Number_of_Volunteers__c</name>
+    </fields>
+    <fields>
+        <help><!-- The actual date &amp; time the volunteer is planning on starting. --></help>
+        <label>Geplantes Startdatum und Uhrzeit</label>
+        <name>Planned_Start_Date_Time__c</name>
+    </fields>
+    <fields>
+        <label>Startdatum und Uhrzeit der Schicht</label>
+        <name>Shift_Start_Date_Time__c</name>
+    </fields>
+    <fields>
+        <label>Startdatum</label>
+        <name>Start_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Canceled</masterLabel>
+            <translation><!-- Canceled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Confirmed</masterLabel>
+            <translation><!-- Confirmed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No-Show</masterLabel>
+            <translation><!-- No-Show --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Prospect</masterLabel>
+            <translation><!-- Prospect --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Web Sign Up</masterLabel>
+            <translation><!-- Web Sign Up --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Text information from the system scheduler. --></help>
+        <label>Systemhinweis</label>
+        <name>System_Note__c</name>
+    </fields>
+    <fields>
+        <label>Abgeleistete Stunden gesamt</label>
+        <name>Total_Hours_Worked__c</name>
+    </fields>
+    <fields>
+        <label>Name der Freiwilligenkampagne</label>
+        <name>Volunteer_Campaign_Name__c</name>
+    </fields>
+    <fields>
+        <label>Freiwilligenkampagne</label>
+        <name>Volunteer_Campaign__c</name>
+    </fields>
+    <fields>
+        <label>Freiwilligenauftrag</label>
+        <name>Volunteer_Job__c</name>
+        <relationshipLabel>Freiwilligenstunden</relationshipLabel>
+    </fields>
+    <fields>
+        <label>Zeitplan für wiederkehrende Freiwillige</label>
+        <name>Volunteer_Recurrence_Schedule__c</name>
+        <relationshipLabel>Freiwilligenstunden</relationshipLabel>
+    </fields>
+    <fields>
+        <label>Freiwilligenschicht</label>
+        <lookupFilter>
+            <informationalMessage>Sie können nur eine Schicht wählen, die zum aktuellen Auftrag gehört.</informationalMessage>
+        </lookupFilter>
+        <name>Volunteer_Shift__c</name>
+        <relationshipLabel>Freiwilligenstunden</relationshipLabel>
+    </fields>
+    <gender>Masculine</gender>
+    <nameFieldLabel>Dienststunden ID</nameFieldLabel>
+    <validationRules>
+        <errorMessage>Geben Sie die Arbeitsstunden an, wenn Sie den Status auf &quot;Abgeleistet&quot; festlegen.</errorMessage>
+        <name>HoursRequiredOnCompletion</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Geben Sie einen Statuswert an.</errorMessage>
+        <name>StatusMustBeSet</name>
+    </validationRules>
+    <webLinks>
+        <label>Freiwilligenstunden für Massenbearbeitung</label>
+        <name>Mass_Edit_Volunteer_Hours</name>
+    </webLinks>
+</CustomObjectTranslation>

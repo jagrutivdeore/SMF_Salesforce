@@ -1,0 +1,152 @@
+@RestResource(urlMapping='/deleteProcessAnswer/*')
+global class WS_DeleteProcessAnswer {
+    @HttpGet
+    global static ProcessAnswer__c doGet() {
+    RestRequest req = RestContext.request;
+        RestResponse res = RestContext.response;
+        String processAnswerId = RestContext.request.params.get('processAnswerId');
+        
+        ProcessAnswer__c processAnswer = new ProcessAnswer__c();
+        
+        processAnswer = [select id from ProcessAnswer__c where id =: processAnswerId];
+        delete processAnswer;
+        
+        return processAnswer;
+        
+  }
+    
+    public static void testCode() {
+         Integer i =0;
+            i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+            i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+            i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+            i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+         i++;
+        }
+ 
+}

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value><!-- Error --></value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value><!-- Error --></value>
+    </caseValues>
+    <fields>
+        <help><!-- Context that generated the error, if known. --></help>
+        <label>Type de contexte</label>
+        <name>Context_Type__c</name>
+    </fields>
+    <fields>
+        <help><!-- Date &amp; time the error occurred --></help>
+        <label>Date et heure</label>
+        <name>Datetime__c</name>
+    </fields>
+    <fields>
+        <help><!-- Indicates whether an email notification has been sent regarding this error. --></help>
+        <label>E-mail envoyé</label>
+        <name>Email_Sent__c</name>
+    </fields>
+    <fields>
+        <help><!-- Type of error that occurred --></help>
+        <label>Type d’erreur</label>
+        <name>Error_Type__c</name>
+    </fields>
+    <fields>
+        <help><!-- Full text of the error message --></help>
+        <label>Message complet</label>
+        <name>Full_Message__c</name>
+    </fields>
+    <fields>
+        <help><!-- Type of object on which the error occurred, if known. --></help>
+        <label>Type d’objet</label>
+        <name>Object_Type__c</name>
+    </fields>
+    <fields>
+        <help><!-- Indicates whether the error has been posted in Chatter. --></help>
+        <label>Publiée dans Chatter</label>
+        <name>Posted_in_Chatter__c</name>
+    </fields>
+    <fields>
+        <help><!-- A link to the record which caused the error, if available. --></help>
+        <label>URL d’enregistrement</label>
+        <name>Record_URL__c</name>
+    </fields>
+    <fields>
+        <help><!-- Stack trace for the thrown error, if available at runtime. --></help>
+        <label>Trace de pile</label>
+        <name>Stack_Trace__c</name>
+    </fields>
+    <gender><!-- Masculine --></gender>
+    <nameFieldLabel><!-- Error Number --></nameFieldLabel>
+    <startsWith><!-- Consonant --></startsWith>
+</CustomObjectTranslation>

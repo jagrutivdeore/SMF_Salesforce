@@ -1,0 +1,25 @@
+<apex:page StandardController="ProcessAnswer__c" extensions="ProcessReportsTest" contentType="application/vnd.ms-excel#SalesForceExport.xls" cache="true">
+    <apex:form id="id1">
+        <apex:pageBlock >
+            
+            <table>
+                    <tr>
+                        <apex:repeat value="{!listOfText}" var="str" >
+                            <th>{!str}</th>
+                         </apex:repeat>
+                    </tr>
+                <tbody>
+                    <apex:repeat value="{!PAList}" var="pa" >
+                    <tr>
+                        <apex:repeat value="{!listOfAPI}" var="att" >
+                         
+                            <td>{!pa[att]}</td>
+                         
+                         </apex:repeat>
+                        </tr>
+                        </apex:repeat>
+                  </tbody>
+            </table>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

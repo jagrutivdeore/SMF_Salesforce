@@ -1,0 +1,8 @@
+<apex:page readOnly="True" controller="CheckRecordFetchLimit">
+    <apex:variable var="count" value="{!0}"/>
+    <apex:repeat value="{!pr}" var="p">
+        <apex:variable var="count" value="{!count + 1}"/>
+    </apex:repeat>
+     size is {!count}
+    
+</apex:page>

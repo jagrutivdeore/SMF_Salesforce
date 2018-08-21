@@ -1,0 +1,63 @@
+<apex:page controller="ProcessReportsController" showHeader="false" sidebar="false" readOnly="true" docType="html-5.0">
+    <apex:form id="id1">
+      
+        <apex:actionStatus id="status">
+        <apex:facet name="start">
+            <div style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; opacity: 0.25; z-index: 1000; background-color: black;">
+                &nbsp;
+            </div>
+            <div style="position: fixed; left: 0; top: 0; bottom: 0; right: 0; z-index: 1001; margin: 15% 50%">
+                <div style="display: inline-block; padding: 2px; background-color: #fff; width: 125px;">
+                    <img src="/img/loading.gif" style="float: left; margin: 8px;" />
+                    <span style="display: inline-block; padding: 10px 0px;">Please Wait..</span>
+                </div>
+            </div>
+        </apex:facet>
+    </apex:actionStatus>
+        
+       <apex:actionRegion >
+            <apex:pageBlock id="pg1">
+                <apex:selectList label="Select Process : " size="1" value="{!selectProcess}">  
+                    <apex:selectOptions value="{!selectedProcess}"/>
+                    <apex:actionSupport event="onchange" action="{!generateReport}" reRender="table1" status="status" />
+                </apex:selectList>
+                
+                <apex:commandButton value="Download Report" action="{!DownloadExcelReport}"/>
+            </apex:pageBlock>
+      </apex:actionRegion>  
+      
+  <apex:pageBlock id="table1">      
+       
+  <div>     
+    <apex:outputPanel > 
+            <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-table_col-bordered" cellspacing="0" cellpadding="6" border="1">
+                    <tr bgcolor="#B3C7E4">
+                        <apex:repeat value="{!listOfText}" var="str" >
+                            <th>{!str}</th>
+                         </apex:repeat>
+                    </tr>
+                <tbody>
+                    <apex:repeat value="{!PAList}" var="pa" >
+                    <tr>
+                        <apex:repeat value="{!listOfAPI}" var="att" >
+                         
+                            <td>{!pa[att]}</td>
+                         
+                         </apex:repeat>
+                        </tr>
+                        </apex:repeat>
+                  </tbody>
+            </table>
+    </apex:outputPanel> 
+    </div>
+    
+    
+     <apex:pageblockButtons >
+            <apex:commandButton value="<<" rerender="table1" action="{!beginning}" disabled="{!prev}"/>
+            <apex:commandButton value="<" rerender="table1" action="{!previous}" disabled="{!prev}"/>
+            <apex:commandButton value=">" rerender="table1" action="{!next}" disabled="{!nxt}"/>
+            <apex:commandButton value=">>" rerender="table1" action="{!end}" disabled="{!nxt}"/>                                    
+        </apex:pageblockButtons>
+      </apex:pageBlock>  
+    </apex:form>
+</apex:page>

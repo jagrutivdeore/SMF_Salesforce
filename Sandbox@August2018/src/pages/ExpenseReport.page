@@ -1,0 +1,151 @@
+<apex:page controller="ExpenseReport" showHeader="false" sidebar="true" docType="html-5.0" readOnly="true">
+<apex:slds />
+
+  <apex:form >
+  
+ 
+   <div aria-labelledby="newaccountform">
+    
+    <div class="slds">
+     <form class="slds-form--stacked slds-wrap">
+  
+      <div style="width:80%;margin:0 auto;">
+           <apex:outputPanel id="allFeedback">
+                <fieldset class="slds-box slds-theme--default slds-container--large">
+                   <legend id="newaccountform" class="slds-text-heading--small slds-p-vertical--large">Expense Report </legend>
+                   <font color="red">
+    <apex:messages />
+    </font>
+                   
+                    
+                    From Date :<br/>
+                    <apex:input type="text" value="{!fromDate}" onclick="(this.type='date')" onmouseout="(this.type='text')"/>
+                    <br/><br/>
+                       
+                    To Date :<br/>
+                    <apex:input type="text" value="{!toDate}" onclick="(this.type='date')" onmouseout="(this.type='text')"/>
+                    <br/><br/>   
+                   
+                    <apex:commandButton value="Set Date" action="{!SetDate}" style="float:left;"/>
+                    
+                    <br/><br/><br/>
+                    
+                    <div class="slds-form-element">
+                    <label class="slds-form-element__label" for="select-01" style="font-weight:bold;color:#16325C;">Select User Name</label>
+                    <div class="slds-form-element__control">
+                      <div class="slds-select_container">    
+                      
+                           <apex:selectList value="{!selectedId}" id="dropdown" multiselect="false" size="1" styleClass="slds-select chartBlock">  
+                                                       
+
+                                 <apex:selectOptions value="{!UserList}"/>
+                               
+                             </apex:selectList>
+                              
+                        </div>  
+                     </div>
+                    </div>
+                    
+                  <br/>
+                   <apex:commandButton value="Generate Report" action="{!DownloadExcelReport}" style="float:left;" disabled="{!GenerateFlag}"/>
+                  <!--  <apex:commandButton value="Download Report" action="{!DownloadReport}" style="float:right;"/>  -->
+                  
+                    <div> 
+                    <br/>
+                    <hr> </hr>
+     
+     <h5> Voucher </h5>
+     <br/>
+     
+     <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-table_col-bordered" cellspacing="0" cellpadding="6" border="1">
+       <tr>
+         <th>Voucher Name</th>
+         <th>Project</th>
+         <th>No Of Peopel Travelled</th>
+         <th>From Date</th>
+         <th>To Date</th>
+         <th>Total Advance</th>
+         <th>Total Expense</th>
+         <th>Total Balance</th>
+       </tr>
+       
+       <apex:repeat value="{!voucherList}" var="voucher">
+         <tr>
+           <td>{!voucher.Name}</td>
+           <td>{!voucher.Project__c}</td>
+           <td>{!voucher.No_Of_Peopel_Travelled__c}</td>
+           <td>{!voucher.FromDate__c}</td>
+           <td>{!voucher.ToDate__c}</td>
+           <td>{!voucher.Total_Advance__c}</td>
+           <td>{!voucher.Total_Balance__c}</td>
+           <td>{!voucher.Total_Expense__c}</td>
+           
+         </tr>
+       </apex:repeat>
+     </table>
+     
+     
+     
+      <br/><br/><br/>
+      <h5> Expense </h5>
+      <br/>
+     
+     <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-table_col-bordered" cellspacing="0" cellpadding="6" border="1">
+       <tr>
+         <th>Expense Name</th>
+         <th>Status</th>
+         <th>Particulars</th>
+         <th>Amount</th>
+         <th>Approved Amount</th>
+         <th>Request Date</th>
+         <th>Respond Date</th>
+         <th>Voucher</th>
+         <th>Attachments</th>
+       </tr>
+       
+       <apex:repeat value="{!expList}" var="expenses">
+         <tr>
+           <td>{!expenses.Name}</td>
+           <td>{!expenses.Status__c}</td>
+           <td>{!expenses.Particulars__c }</td>
+           <td>{!expenses.Amount__c}</td>
+           <td>{!expenses.Approved_Amount__c}</td>
+           <td>{!expenses.Request_Date__c}</td>
+           <td>{!expenses.Respond_Date__c}</td>
+           <td>{!expenses.Voucher__r.Name}</td>
+           <td><a href="http://mobileapp.mulyavardhan.org/images/{!expenses.X18_digit_Id__c}.png" target="_blank">{!if(expenses.isAttachmentPresent__c == true,'Click Here to view Attachment','')}</a></td>
+           
+         </tr>
+       </apex:repeat>
+     </table>
+     
+     <br/><br/><br/>
+     <h5> Particulars</h5>
+      <br/>
+     
+      <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-table_col-bordered" cellspacing="0" cellpadding="6" border="1">
+       <tr>
+         <th>Particulars</th>
+         <th>Amount</th>
+        
+       </tr>
+       
+       <apex:repeat value="{!ParticularsData}" var="part">
+         <tr>
+           <td>{!part}</td>
+           <td>{!ParticularsData[part]}</td>
+          
+         </tr>
+       </apex:repeat>
+     </table>
+     
+     </div>
+                   
+                </fieldset>  
+              </apex:outputPanel> 
+      </div>  
+     </form> 
+    </div>
+   </div>      
+  </apex:form>
+</apex:page>

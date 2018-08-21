@@ -1,0 +1,77 @@
+<apex:page standardController="MV_Process__c" extensions="tableDataDemoNIranjan" sidebar="false" showHeader="false">
+
+ <apex:form id="form1">
+     <apex:actionRegion >
+        <apex:pageBlock id="pblockid" >
+        <div align="Center"> 
+        <b><h6>
+            Executive Dashbord
+        </h6></b>
+        </div>
+        
+
+        <apex:actionfunction name="setValueToDist" action="{!checkdistValue}" rerender="form1,actStatusId,talId,outPutId,pieChart1,pieChart2,areaId,talId,distId1,table1,divId,headingTitle,pieChartId,chID,infoId,pblockidtable"/>
+        
+        <apex:actionfunction name="setValueToProcess" action="{!checkProcessValue}" rerender="form1,actStatusId,talId,outPutId,pieChart1,pieChart2,areaId,talId,distId,table1,divId,headingTitle,pieChartId,chID,infoId,pblockidtable"/>
+        
+        <apex:actionfunction name="setValueToQuestion" action="{!checkQuestionValue}" rerender="form1,actStatusId,talId,outPutId,pieChart1,pieChart2,areaId,talId,distId,table1,divId,headingTitle,pieChartId,chID,infoId,pblockidtable"/>
+        
+        <apex:actionfunction name="refreshTable" action="{!refreshTable}" rerender="form1,actStatusId,talId,outPutId,pieChart1,pieChart2,areaId,talId,distId,table1,divId,headingTitle,pieChartId,chID,infoId,pblockidtable,"/>
+
+        <apex:pageBlockSection columns="1" title="Location Criteria">
+            
+          <apex:selectList label="State" value="{!State}" multiselect="false" size="1" onchange="setValueToDist()">
+            <apex:selectOptions value="{!stateList}"/>
+        </apex:selectList>
+        <apex:selectList label="District" value="{!dist}" multiselect="false" size="1" onchange="setValueToTaluka()" id="distId1">
+            <apex:selectOptions value="{!District}"/>
+        </apex:selectList>
+       
+        </apex:pageBlockSection>   
+
+        <apex:pageBlockSection columns="1" title="Process Criteria">
+        <apex:selectList label="Role" value="{!role}" multiselect="false" size="1" onchange="setValueToProcess()">
+            <apex:selectOptions value="{!roleList}"/>
+        </apex:selectList>
+        
+            <apex:selectList label="Process" value="{!Process}" multiselect="false" size="1" onchange="setValueToQuestion()" id="distId">
+            <apex:selectOptions value="{!processList}"/>
+        </apex:selectList>
+        
+       
+         <apex:selectList label="Question" id="talId" value="{!question}" multiselect="false" size="1" onchange="refreshTable()">
+            <apex:selectOptions value="{!questionList}"/>
+        </apex:selectList>
+        </apex:pageBlockSection>        
+             </apex:pageBlock>
+               <apex:pageBlock id="pblockidtable">
+                 <apex:pageblocktable value="{!feedbackdatalist}" var="cnt" rendered="{!feedbackdatalist != null}" width="100%">
+                    <apex:variable var="rowNo" value="{!0}" />
+
+                    <apex:column headerValue="Number">
+                    <apex:variable var="rowNo" value="{!rowNo+1}"/>
+                        {!rowNo-1}
+                    </apex:column>
+                    <apex:column headerValue="Options" >
+                        {!cnt.name}
+                    </apex:column>
+                    <apex:column headerValue="0%-25%" >
+                        {!cnt.worstPlace}
+                    </apex:column>
+                    <apex:column headerValue="26%-50%">
+                        {!cnt.averagePlace}
+                    </apex:column>
+                    <apex:column headerValue="51%-75%">
+                        {!cnt.goodplace}
+                    </apex:column>
+                    <apex:column headerValue="76%-100%">
+                        {!cnt.bestPlace}
+                    </apex:column>
+                </apex:pageblocktable>
+                </apex:pageBlock>
+             </apex:actionRegion>                   
+
+        
+ </apex:form>
+
+</apex:page>

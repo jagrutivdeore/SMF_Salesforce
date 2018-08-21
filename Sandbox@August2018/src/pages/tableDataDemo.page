@@ -1,0 +1,64 @@
+<apex:page standardController="MV_Process__c" extensions="tableDataDemo" sidebar="false" showheader="false">
+ <apex:form id="form1">
+     <apex:actionRegion >
+  
+        <apex:pageBlock id="pblockid"> 
+            <table width = "80%"> 
+                <tr>
+                    <th> <apex:image url="{!$Resource.SMFLogo}" height="175" width="400"/> </th>
+                    <th><strong style="font-size:20px;color:#51C8C6;">Executive Dashboard</strong></th>
+                </tr>
+             </table>
+
+        <apex:actionfunction name="setValueToDist" action="{!checkdistValue}" rerender="form1,actStatusId,talId,outPutId,pieChart1,pieChart2,areaId,talId,distId1,table1,divId,headingTitle,pieChartId,chID,infoId"/>
+        
+        <apex:actionfunction name="setValueToTaluka" action="{!checktalukaValue}" rerender="form1,actStatusId,talId,outPutId,pieChart1,pieChart2,areaId,talId,distId1,table1,divId,headingTitle,pieChartId,chID,infoId"/>
+
+        <apex:actionfunction name="setValueTocluster" action="{!checkClusterValue}" rerender="form1,actStatusId,talId,outPutId,pieChart1,pieChart2,areaId,talId,distId,table1,divId,headingTitle,pieChartId,chID,infoId"/>
+        
+        <apex:actionfunction name="setValueToProcess" action="{!checkProcessValue}" rerender="form1,actStatusId,talId,outPutId,pieChart1,pieChart2,areaId,talId,distId,table1,divId,headingTitle,pieChartId,chID,infoId"/>
+        
+        <apex:actionfunction name="setValueToQuestion" action="{!checkQuestionValue}" rerender="form1,actStatusId,talId,outPutId,pieChart1,pieChart2,areaId,talId,distId,table1,divId,headingTitle,pieChartId,chID,infoId"/>
+        
+        <apex:actionfunction name="refreshTable" action="{!refreshTable}" rerender="form1,actStatusId,talId,outPutId,pieChart1,pieChart2,areaId,talId,distId,table1,divId,headingTitle,pieChartId,chID,infoId"/>
+
+        <apex:pageBlockSection columns="1" title="Location Criteria">
+            
+          <apex:selectList label="State" value="{!State}" multiselect="false" size="1" onchange="setValueToDist()">
+            <apex:selectOptions value="{!stateList}"/>
+        </apex:selectList>
+        <apex:selectList label="District" value="{!dist}" multiselect="false" size="1" onchange="setValueToTaluka()" id="distId1">
+            <apex:selectOptions value="{!District}"/>
+        </apex:selectList>
+        
+         <apex:selectList label="Taluka" id="talId1" value="{!tal}" multiselect="false" size="1" onchange="setValueTocluster()">
+            <apex:selectOptions value="{!Taluka}"/>
+        </apex:selectList>
+        
+        <apex:selectList label="Cluster" id="cltId" value="{!cluster}" multiselect="false" size="1">
+            <apex:selectOptions value="{!clusterlist}"/>
+        </apex:selectList>
+        
+        </apex:pageBlockSection>   
+
+        <apex:pageBlockSection columns="1" title="Process Criteria">
+        <apex:selectList label="Role" value="{!role}" multiselect="false" size="1" onchange="setValueToProcess()">
+            <apex:selectOptions value="{!roleList}"/>
+        </apex:selectList>
+        
+            <apex:selectList label="Process" value="{!Process}" multiselect="false" size="1" onchange="setValueToQuestion()" id="distId">
+            <apex:selectOptions value="{!processList}"/>
+        </apex:selectList>
+        
+       
+         <apex:selectList label="Question" id="talId" value="{!question}" multiselect="false" size="1" onchange="refreshTable()">
+            <apex:selectOptions value="{!questionList}"/>
+        </apex:selectList>
+        </apex:pageBlockSection>        
+             </apex:pageBlock>
+             </apex:actionRegion>                   
+
+        
+ </apex:form>
+
+</apex:page>

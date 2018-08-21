@@ -1,0 +1,11 @@
+<apex:page controller="npsp.ADDR_CopyAddrHHObjBTN_CTRL" action="{!buttonClick}" >
+
+    <apex:slds />
+
+    <c:UTIL_PageMessages />
+
+    <div class="slds-scope">
+        <apex:outputLink target="_self" title="Return"  value="{!returnurl}" styleClass="slds-button slds-button_brand">Return</apex:outputLink>
+        <c:UTIL_NavigateBack recordId="{!$CurrentPage.parameters.id}" redirect="{!redirectPage}"/>
+    </div>
+</apex:page>

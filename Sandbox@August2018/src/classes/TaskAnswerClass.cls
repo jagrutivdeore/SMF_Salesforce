@@ -1,0 +1,25 @@
+public class TaskAnswerClass {
+   public string Id {get;set;}
+    public string Location_Level {get;set;}
+           public string Validation_on_text {get;set;}
+            public string Question {get;set;}
+            public string Is_Mandotory {get;set;}
+            public string Picklist_Value {get;set;} 
+            public string Answer {get;set;}
+            public string MV_Task {get;set;}
+            public string Timestamp {get;set;}
+            public string Unique_Idd {get;set;}
+            public string MV_User {get;set;}
+            public string MV_Process {get;set;}
+            public string IsApproved {get;set;}
+            public boolean IsEditable {get;set;}
+            public string Approved_By {get;set;}
+            public string Comment {get;set;}
+            public string IsSave {get;set;}
+            public string Task_Type {get;set;}
+             public string status {get;set;}
+            public string position {get;set;}
+            public string isHeader {get;set;}
+           public String lanTsaskText {get;set;}
+           public String lanPicklistValue {get;set;}
+}

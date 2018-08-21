@@ -1,0 +1,55 @@
+<apex:page standardController="Event_Calender__c" extensions="TrainingFeedbackReport" standardStylesheets="false" showHeader="false" sidebar="false" readOnly="true" contentType="application/octet-stream#TrainigFeedbackReport.xls">
+<apex:form >
+  
+  <!-- contentType="application/octet-stream#TrainigFeedbackReport.xls" -->
+  Event Type :  <apex:outputText value="{!selType}"> </apex:outputText>
+  
+  <br/>
+  
+  
+  Event From Date :  <apex:outputText value="{!fromDate}"> </apex:outputText>
+  <br/>
+   Event To Date :  <apex:outputText value="{!toDate}"> </apex:outputText>  
+  
+  <br/>
+  
+   <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-table_col-bordered" cellspacing="0" cellpadding="6" border="1">
+                        <tr>
+                          <th>Title</th>
+                          <th>State</th>
+                          <th>District </th>
+                          <th>Taluka </th>
+                          <th>Training Start Date</th>
+                          <th>Training End Date</th>
+                          <th>Status </th>
+                          <th> Names of the MTs</th>
+                          <th> Name of TC</th>
+                          <th>Number of Feedbacks received</th>
+                          <th>Delay in receiving the feedback</th>
+                          <th>Number of participants</th>
+                          <th>Name of participants</th>
+                        </tr>
+
+                        <apex:repeat value="{!wrapperList1}" var="training">
+                          <tr>
+                          
+                          <th>{!training.Name}</th>
+                          <th>{!training.State}</th>
+                          <th>{!training.District}</th>
+                          <th>{!training.Taluka}</th>
+                          <th>{!training.StartDate}</th>
+                          <th>{!training.EndDate}</th>
+                          <th>{!training.Status}</th>
+                          <th>{!training.MTName}</th>
+                          <th>{!training.TCName}</th>
+                          <th>{!training.Feedbacksreceived}</th>
+                          <th>{!training.FeedbacksDelay}</th>
+                          <th>{!training.UserCount}</th>
+                          <th>{!training.UsersName}</th>
+                        </tr>
+                        </apex:repeat>
+                    </table>
+                   
+    
+  </apex:form>
+</apex:page>

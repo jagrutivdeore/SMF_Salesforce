@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value><!-- Engagement Plan Template --></value>
+    </caseValues>
+    <fields>
+        <help><!-- Recalculates a child Task&apos;s due date based on when the parent Task was actually completed. --></help>
+        <label>子 ToDo の期日を自動的に更新</label>
+        <name>Automatically_Update_Child_Task_Due_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- When an Engagement Plan Task&apos;s Assigned To field is left blank, who should the Task be assigned to? --></help>
+        <label>デフォルトの任命先</label>
+        <name>Default_Assignee__c</name>
+        <picklistValues>
+            <masterLabel>Owner of Object for Engagement Plan</masterLabel>
+            <translation><!-- Owner of Object for Engagement Plan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>User Creating Engagement Plan</masterLabel>
+            <translation><!-- User Creating Engagement Plan --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>説明</label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
+        <help><!-- Should Tasks with Due Dates on a weekend day be scheduled for the Friday before the weekend or the Monday after? This applies only if Skip Weekend is selected. --></help>
+        <label>再スケジュール先</label>
+        <name>Reschedule_To__c</name>
+        <picklistValues>
+            <masterLabel>Friday</masterLabel>
+            <translation><!-- Friday --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Monday</masterLabel>
+            <translation><!-- Monday --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- If selected, Tasks created in this Engagement Plan will not have Due Dates that fall on Saturday or Sunday. --></help>
+        <label>週末をスキップ</label>
+        <name>Skip_Weekends__c</name>
+    </fields>
+    <fields>
+        <label>エンゲージメント計画総数</label>
+        <name>Total_Engagement_Plans__c</name>
+    </fields>
+    <fields>
+        <label>ToDo 総数</label>
+        <name>Total_Tasks__c</name>
+    </fields>
+    <nameFieldLabel><!-- Engagement Plan Template Name --></nameFieldLabel>
+    <webLinks>
+        <label>テンプレートの管理</label>
+        <name>Manage_Template</name>
+    </webLinks>
+</CustomObjectTranslation>

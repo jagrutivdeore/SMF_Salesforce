@@ -1,0 +1,100 @@
+<apex:page standardController="MV_Process__c" extensions="Demo" sidebar="false" showHeader="false">
+     <!--<apex:Form >
+          <apex:pageBlock >
+           <apex:pageBlockSection collapsible="true" title="Adding Columns Dynamically" columns="1">
+                
+               <apex:PageBlockTable value="{!feedbackdatalist}" var="cnt">           
+                       <apex:column headerValue="UniqueId" >
+                        {!cnt.name0}
+                    </apex:column>
+                    <apex:column headerValue="state" >
+                        {!cnt.name1}
+                    </apex:column>
+                     <apex:column headerValue="District" >
+                        {!cnt.name2}
+                    </apex:column>
+                     <apex:column headerValue="Taluka" >
+                        {!cnt.name3}
+                    </apex:column>
+                     <apex:column headerValue="ब्याच निवडा" >
+                        {!cnt.name4}
+                    </apex:column>
+                     <apex:column headerValue="केंद्र 1" >
+                        {!cnt.name5}
+                    </apex:column>
+                     <apex:column headerValue="केंद्राचे नाव 1" >
+                        {!cnt.name6}
+                    </apex:column>
+                     <apex:column headerValue=" केंद्रातील (1) एकूण सहभागी प्राथमिक शिक्षकांची संख्या" >
+                        {!cnt.name7}
+                    </apex:column>
+                     <apex:column headerValue="मूल्यवर्धन प्रेरकांची नावे १" >
+                        {!cnt.name8}
+                    </apex:column>
+                    
+                     <apex:column headerValue="मूल्यवर्धन प्रेरकांची नावे २" >
+                        {!cnt.name9}
+                    </apex:column>
+                    
+                    <apex:column headerValue="मूल्यवर्धन प्रेरकांची नावे ३" >
+                        {!cnt.name10}
+                    </apex:column>
+                     
+                     <apex:column headerValue="केंद्र प्रमुखांची नावे १" >
+                        {!cnt.name11}
+                    </apex:column>
+                     
+                     <apex:column headerValue="केंद्र प्रमुखांची नावे २" >
+                        {!cnt.name12}
+                    </apex:column>
+                     <apex:column headerValue="केंद्र प्रमुखांची नावे ३" >
+                        {!cnt.name13}
+                    </apex:column>
+                     <apex:column headerValue="केंद्राचे नाव 2" >
+                        {!cnt.name14}
+                    </apex:column>
+                     <apex:column headerValue="केंद्रातील (2) एकूण सहभागी प्राथमिक शिक्षकांची संख्या" >
+                        {!cnt.name15}
+                    </apex:column>
+                     <apex:column headerValue="मूल्यवर्धन प्रेरकांची नावे १" >
+                        {!cnt.name16}
+                    </apex:column>
+                     <apex:column headerValue="मूल्यवर्धन प्रेरकांची नावे २" >
+                        {!cnt.name17}
+                    </apex:column>
+                     <apex:column headerValue="मूल्यवर्धन प्रेरकांची नावे ३" >
+                        {!cnt.name18}
+                    </apex:column>
+                     <apex:column headerValue="केंद्र प्रमुखांची नावे १" >
+                        {!cnt.name19}
+                    </apex:column>
+                     <apex:column headerValue="केंद्र प्रमुखांची नावे २" >
+                        {!cnt.name20}
+                    </apex:column>
+                     <apex:column headerValue="केंद्र प्रमुखांची नावे ३" >
+                        {!cnt.name21}
+                    </apex:column>
+                     <apex:column headerValue="दिनांक १" >
+                        {!cnt.name22}
+                    </apex:column>
+                     <apex:column headerValue="दिनांक २" >
+                        {!cnt.name23}
+                    </apex:column>
+                     <apex:column headerValue="दिनांक ३" >
+                        {!cnt.name24}
+                    </apex:column>
+                     <apex:column headerValue="दिनांक ४" >
+                        {!cnt.name25}
+                    </apex:column>
+                     <apex:column headerValue="कार्यशाळेसाठी निश्चित करण्यात आलेले ठिकाण" >
+                        {!cnt.name26}
+                    </apex:column>
+                     <apex:column headerValue="अभिप्राय" >
+                        {!cnt.name27}
+                    </apex:column> 
+                    
+            </apex:PageBlockTable>
+        </apex:pageBlockSection>
+          </apex:pageBlock>
+     </apex:Form>-->
+</apex:page>

@@ -1,0 +1,11 @@
+<apex:page standardController="MV_Process__c" extensions="form123" sidebar="false">
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageBlockSection columns="1" title="Select Process">
+                <apex:selectList label="Process" value="{!Process}" multiselect="false" size="1">
+                    <apex:selectOptions value="{!ProcessList}"/>
+                </apex:selectList>            
+             </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

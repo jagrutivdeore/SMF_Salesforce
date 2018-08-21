@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <caseType>Nominative</caseType>
+        <plural>false</plural>
+        <value><!-- Household --></value>
+    </caseValues>
+    <caseValues>
+        <caseType>Nominative</caseType>
+        <plural>true</plural>
+        <value><!-- Household --></value>
+    </caseValues>
+    <caseValues>
+        <caseType>Accusative</caseType>
+        <plural>false</plural>
+        <value><!-- Household --></value>
+    </caseValues>
+    <caseValues>
+        <caseType>Accusative</caseType>
+        <plural>true</plural>
+        <value><!-- Household --></value>
+    </caseValues>
+    <caseValues>
+        <caseType>Genitive</caseType>
+        <plural>false</plural>
+        <value><!-- Household --></value>
+    </caseValues>
+    <caseValues>
+        <caseType>Genitive</caseType>
+        <plural>true</plural>
+        <value><!-- Household --></value>
+    </caseValues>
+    <caseValues>
+        <caseType>Dative</caseType>
+        <plural>false</plural>
+        <value><!-- Household --></value>
+    </caseValues>
+    <caseValues>
+        <caseType>Dative</caseType>
+        <plural>true</plural>
+        <value><!-- Household --></value>
+    </caseValues>
+    <fields>
+        <label>Adressat</label>
+        <name>Addressee__c</name>
+    </fields>
+    <fields>
+        <label>Immer anonym</label>
+        <name>Always_Anonymous__c</name>
+    </fields>
+    <fields>
+        <label>Durchschnittsgeschenk</label>
+        <name>AverageAmount__c</name>
+    </fields>
+    <fields>
+        <label>Bestes Geschenkejahr gesamt</label>
+        <name>Best_Gift_Year_Total__c</name>
+    </fields>
+    <fields>
+        <label>Bestes Geschenkejahr</label>
+        <name>Best_Gift_Year__c</name>
+    </fields>
+    <fields>
+        <label>Datum der ersten Spende</label>
+        <name>FirstCloseDate__c</name>
+    </fields>
+    <fields>
+        <label>Formelle Anrede</label>
+        <name>Formal_Greeting__c</name>
+    </fields>
+    <fields>
+        <label>Mailadresse</label>
+        <name>Formula_MailingAddress__c</name>
+    </fields>
+    <fields>
+        <label>E-Mail-Adresse des Haushalts</label>
+        <name>HouseholdEmail__c</name>
+    </fields>
+    <fields>
+        <label>Rufnummer des Haushalts</label>
+        <name>HouseholdPhone__c</name>
+    </fields>
+    <fields>
+        <label>Kennung des Haushalts</label>
+        <name>Household_ID__c</name>
+    </fields>
+    <fields>
+        <label>Informelle Anrede</label>
+        <name>Informal_Greeting__c</name>
+    </fields>
+    <fields>
+        <label>Größtes Spende</label>
+        <name>LargestAmount__c</name>
+    </fields>
+    <fields>
+        <label>Datum der letzten Spende</label>
+        <name>LastCloseDate__c</name>
+    </fields>
+    <fields>
+        <label>Betrag der letzten Mitgliedschaft</label>
+        <name>LastMembershipAmount__c</name>
+    </fields>
+    <fields>
+        <label>Datum der letzten Mitgliedschaft</label>
+        <name>LastMembershipDate__c</name>
+    </fields>
+    <fields>
+        <label>Ebene der letzten Mitgliedschaft</label>
+        <name>LastMembershipLevel__c</name>
+    </fields>
+    <fields>
+        <label>Ursprung der letzten Mitgliedschaft</label>
+        <name>LastMembershipOrigin__c</name>
+    </fields>
+    <fields>
+        <label>Betrag der letzten Spende</label>
+        <name>LastOppAmount__c</name>
+    </fields>
+    <fields>
+        <label>Postanschrift Stadt</label>
+        <name>MailingCity__c</name>
+    </fields>
+    <fields>
+        <label>Postanschrift Land</label>
+        <name>MailingCountry__c</name>
+    </fields>
+    <fields>
+        <label>Postanschrift PLZ</label>
+        <name>MailingPostalCode__c</name>
+    </fields>
+    <fields>
+        <label>Postanschrift Bundesstaat/Provinz</label>
+        <name>MailingState__c</name>
+    </fields>
+    <fields>
+        <label>Postanschrift Straße</label>
+        <name>MailingStreet__c</name>
+    </fields>
+    <fields>
+        <label>Enddatum der Mitgliedschaft</label>
+        <name>MembershipEndDate__c</name>
+    </fields>
+    <fields>
+        <label>Beitrittsdatum der Mitgliedschaft</label>
+        <name>MembershipJoinDate__c</name>
+    </fields>
+    <fields>
+        <label>Zeitraum der Mitgliedschaft</label>
+        <name>Membership_Span__c</name>
+    </fields>
+    <fields>
+        <help><!-- Current, expired, or grace period --></help>
+        <label>Mitgliedschaftsstatus</label>
+        <name>Membership_Status__c</name>
+    </fields>
+    <fields>
+        <label>Gesamte Spendenanzahl</label>
+        <name>NumberOfClosedOpps__c</name>
+    </fields>
+    <fields>
+        <label>Anzahl der Mitgliedschaften</label>
+        <name>NumberOfMembershipOpps__c</name>
+    </fields>
+    <fields>
+        <label>Gesamt Spendensumme vor zwei Jahren</label>
+        <name>OppAmount2YearsAgo__c</name>
+    </fields>
+    <fields>
+        <label>Gesamt Spendensumme letzten Nr Tage</label>
+        <name>OppAmountLastNDays__c</name>
+    </fields>
+    <fields>
+        <label>Gesamt Spendensumme im letzten Jahr</label>
+        <name>OppAmountLastYear__c</name>
+    </fields>
+    <fields>
+        <label>Gesamt Spendensumme in diesem Jahr</label>
+        <name>OppAmountThisYear__c</name>
+    </fields>
+    <fields>
+        <label>Anzahl der Geschenke vor zwei Jahren</label>
+        <name>OppsClosed2YearsAgo__c</name>
+    </fields>
+    <fields>
+        <label>Anz. d. Geschenke in den letzten N Tagen</label>
+        <name>OppsClosedLastNDays__c</name>
+    </fields>
+    <fields>
+        <label>Anzahl der Geschenke letztes Jahr</label>
+        <name>OppsClosedLastYear__c</name>
+    </fields>
+    <fields>
+        <label>Anzahl der Geschenke dieses Jahr</label>
+        <name>OppsClosedThisYear__c</name>
+    </fields>
+    <fields>
+        <label>_SYSTEM: BENUTZERDEFINIERTE BENENNUNG</label>
+        <name>SYSTEM_CUSTOM_NAMING__c</name>
+        <picklistValues>
+            <masterLabel>Formal_Greeting__c</masterLabel>
+            <translation><!-- Formal_Greeting__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Informal_Greeting__c</masterLabel>
+            <translation><!-- Informal_Greeting__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Name</masterLabel>
+            <translation><!-- Name --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Kleinstes Spende</label>
+        <name>SmallestAmount__c</name>
+    </fields>
+    <fields>
+        <label>Gesamtbetrag der Mitgliedschaft</label>
+        <name>TotalMembershipOppAmount__c</name>
+    </fields>
+    <fields>
+        <label>Geschenke Spendensumme</label>
+        <name>TotalOppAmount__c</name>
+    </fields>
+    <gender><!-- Neuter --></gender>
+    <layouts>
+        <layout>Household Layout</layout>
+        <sections>
+            <label><!-- Donation Information --></label>
+            <section>Donation Information</section>
+        </sections>
+        <sections>
+            <label><!-- Donation Totals --></label>
+            <section>Donation Totals</section>
+        </sections>
+        <sections>
+            <label><!-- Household Information --></label>
+            <section>Household Information</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel><!-- Household Name --></nameFieldLabel>
+    <webLinks>
+        <label>Adresse des Haushalts zu Kontakten hinzufügen</label>
+        <name>Copy_Household_Address_to_Contacts</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- New_Household_Member --></label>
+        <name>New_Household_Member</name>
+    </webLinks>
+</CustomObjectTranslation>

@@ -1,0 +1,13 @@
+<apex:page controller="Graph" >
+   
+    <apex:pageblock title="Members and their Years of experience" >
+    
+        <apex:chart height="400" width="400" data="{!pieData}"> 
+         <apex:legend position="left"/>
+
+            <apex:axis type="Numeric" position="left" fields="data1,data2" title="Years of experience"/>    
+            <apex:axis type="Category" position="bottom" fields="name" title="Member"/>            
+            <apex:barSeries orientation="vertical" axis="left" xField="name" yField="data1,data2" title="कार्यशाळेचा उद्देश पूर्ण झाला का ?,मूल्यवर्धन कार्यक्रम,मूल्यवर्धन कार्यक्रम,मूल्यवर्धन कार्यक्रम"/> 
+        </apex:chart>
+    </apex:pageblock>            
+</apex:page>

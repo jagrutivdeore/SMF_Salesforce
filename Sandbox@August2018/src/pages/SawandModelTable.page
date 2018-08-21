@@ -1,0 +1,127 @@
+<!--- Table   --->
+<apex:page standardStylesheets="false" standardController="MV_Content__c" extensions="SawandModelTable_Controller" title="Popup Example" applyBodyTag="false" sidebar="false" showHeader="false" >
+
+    <head>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" ></script>
+        <style>
+            .container-fluid {
+            margin-top: 10px;
+            }
+            #InlineEditDialog {
+                display: none;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <apex:form id="pageId">
+             <ul class="nav nav-tabs">
+                <li> <apex:actionRegion >
+                         <apex:commandButton value="My Community" action="{!refreshMyCommunity}"/>
+                           </apex:actionRegion>
+                 </li> 
+                        
+                 
+                    <li> <apex:actionRegion >
+                         <apex:commandButton value="Broadcast Message" action="{!refreshBroadcastMessage}"/>
+                           </apex:actionRegion>
+                 </li>
+               
+                
+                <li> <apex:actionRegion >
+                         <apex:commandButton value="Thet Sanvad" action="{!updatePage}" reRender="pageId"/>
+                           </apex:actionRegion>
+                 </li>
+                 
+                 
+                 <li> <apex:actionRegion >
+                         <apex:commandButton value="Programme Management" action="{!refreshProgramManagement}" reRender="pageId"/>
+                           </apex:actionRegion>
+                 </li>
+                 
+                 
+                 <li> <apex:actionRegion >
+                         <apex:commandButton value="Executive Dashboard" action="{!sectionwiseDashboardnewdatamodel}" reRender="pageId"/>
+                            </apex:actionRegion>
+                 </li>
+                 
+                 <li> <apex:actionRegion >
+                         <apex:commandButton value="M&E Dashboard" action="{!MandEDashboard}" reRender="pageId"/>
+                            </apex:actionRegion>
+                 </li>
+                        
+                 
+                <!--  <li>      
+                  <apex:commandButton value="Logout" onclick="navigateToUrl('/secur/logout.jsp');"/>
+                 </li> -->
+                 
+               <li ><a data-toggle="tab" onclick="window.location.href='https://cs57.salesforce.com/secur/logout.jsp'" >Logout</a></li> 
+                
+              </ul>
+                
+                <div class="tab-content">
+                
+                <div class="tab-pane fade in active" id= "tab3">
+        
+             <div class="panel panel-success">
+                <div class="panel-heading"><h3>My Community</h3></div>
+                <div class="panel-body">
+                <div class="row">
+                <div class="col-md-6">
+            
+                    
+            <apex:outputPanel id="op4">
+                <table class="table table-bordered">
+                    <tr>
+                        <th>No.</th>
+                        <th>Name Of Communities</th>
+                        <th>View</th>
+                        
+                    </tr>
+                    <apex:variable value="{!1}" var="rowNum"/>
+                    <apex:repeat value="{!communityList}" var="brd">
+                        <tr>
+                            <td>
+                                {!rowNum}
+                               <apex:variable var="rowNum" value="{!rowNum + 1}"/>
+                            </td>
+                            
+                            <td>
+                                <apex:outputField value="{!brd.Name}" />
+                            </td>
+                            
+                            <td>
+                              <apex:outputLink value="/apex/CommunityPage?id={!brd.Id}" id="theLink">view</apex:outputLink>
+                              
+
+                            </td>
+                      
+                        
+                        
+                        
+                        </tr>
+                    </apex:repeat>
+                </table>
+            </apex:outputPanel>
+             <apex:outputPanel id="opl5">
+              <apex:actionFunction action="{!DeleteContent}" name="DeleteContent" >
+                </apex:actionFunction>
+                 </apex:outputPanel>
+        </div>
+        </div>
+
+
+
+                
+   
+</div>
+</div>
+</div>
+</div>          
+ </apex:form>
+                
+    </body> 
+
+</apex:page>

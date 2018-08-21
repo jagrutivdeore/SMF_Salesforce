@@ -1,0 +1,11 @@
+<apex:page StandardController="ProcessAnswer__c" extensions="ProcessSelectionPage">
+    <apex:form id="id1">
+        <apex:pageBlock title="Select the Process">
+            <apex:selectList label="Select Process : " size="1" value="{!selectProcess}">  
+                    <apex:selectOptions value="{!selectedProcess}"/>
+                    <apex:actionSupport event="onchange" action="{!redirect}" />     
+             </apex:selectList>
+             
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

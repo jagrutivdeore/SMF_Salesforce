@@ -1,0 +1,75 @@
+<apex:page standardcontroller="MV_Content__c" extensions="ContentManagementController" readonly="true">  
+    <apex:form >
+        <apex:pageBlock mode="edit" id="block">
+            <!-- <apex:pageBlockButtons >
+            <div align="center" draggable="false" >
+                <apex:commandButton action="{!next}" value="See Results" disabled="{!ISNULL(searchResults)}"/>
+                </div>
+            </apex:pageBlockButtons>  -->
+            <apex:pageMessages />
+            
+            <apex:pageBlockSection >
+                
+            </apex:pageBlockSection>
+
+            <apex:pageBlockSection title="Input Co-Ordinator Search Dashboard" columns="2">
+            
+             <apex:selectList label="State" value="{!State1}" multiselect="false" size="1">
+                <apex:selectOptions value="{!stateList}"/>
+            </apex:selectList>
+        
+            
+                <apex:selectList label="District" value="{!dist}" multiselect="false" size="1">
+            <apex:selectOptions value="{!districtList}"/>
+        </apex:selectList>
+        
+        
+        <apex:selectList label="Taluka" value="{!tal}" multiselect="false" size="1" id="distId">
+            <apex:selectOptions value="{!TalukaList}"/>
+        </apex:selectList>
+        
+        
+         <apex:selectList label="Issue Type" id="talId" value="{!State}" multiselect="false" size="1">
+            <apex:selectOptions value="{!IssueTypeList}"/>
+        </apex:selectList>
+        
+        
+          <apex:selectList label="Priority" id="areaId" value="{!qustionArea}" multiselect="false" size="1">
+            <apex:selectOptions value="{!PriorityList}"/>
+        </apex:selectList>
+                
+                <div align="center" draggable="false" >
+                 <apex:commandButton value="Search" action="{!search}" rerender="block" status="status"/>
+                </div>
+                
+            </apex:pageBlockSection>
+
+            <!-- apex:actionStatus id="status" startText="Searching... please wait..."/> -->
+            
+            <apex:pageBlockSection title="List of Profiles" id="resultsBlock" columns="1" >
+                <div align="center" draggable="false" >
+                    <apex:commandButton action="{!next}" value="Update" disabled="{!ISNULL(searchResults)}"/>
+                </div>
+                <apex:pageBlockTable value="{!searchResults}" var="c" rendered="{!NOT(ISNULL(searchResults))}">
+                    <apex:column width="25px">
+                        <apex:inputCheckbox value="{!c.checked}"/>
+                    </apex:column>
+                     <apex:column headerValue="View">
+                    <apex:outputLink value="/{!c.cat.id}" id="View"  target="_blank">View</apex:outputLink>
+                    </apex:column>
+                     <apex:column value="{!c.cat.Name}" headerValue="Name"/>
+                    <apex:column value="{!c.cat.Title__c}" headerValue="Title"/>
+                     <apex:column value="{!c.cat.Description__c}" headerValue="Description"/>
+                      <apex:column value="{!c.cat.Reporting_Type__c}" headerValue="Reporting Type"/>
+                      <apex:column value="{!c.cat.Issue_Type__c}" headerValue="Issue Type"/>
+                     <apex:column value="{!c.cat.Priority__c}" headerValue="Priority"/>
+                     <apex:column value="{!c.cat.Taluka__c}" headerValue="Taluka"/>
+                      <apex:column value="{!c.cat.District__c}" headerValue="District"/>
+                      <apex:column value="{!c.cat.Attachment_Link__c}" headerValue="Attachment Link"/>
+                      <apex:column value="{!c.cat.CreatedDate}" headerValue="Date"/>
+                       
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

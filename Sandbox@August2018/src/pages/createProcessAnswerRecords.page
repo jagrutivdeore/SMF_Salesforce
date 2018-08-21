@@ -1,0 +1,9 @@
+<apex:page standardController="MV_Process__c" extensions="createProcessAnswerRecordsclass">
+    <apex:form >
+        <apex:pageBlock title="Create data">
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!addPost}" value="Create"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

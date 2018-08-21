@@ -1,0 +1,162 @@
+<apex:page standardController="MV_Process__c" extensions="sectionwiseDashboardAllData" sidebar="false" readOnly="true" showHeader="false">
+    
+    <apex:form id="form1">
+    
+        <apex:actionRegion >
+            
+            <apex:pageBlock id="pblockid" >
+            
+                <div align = "center"><apex:image id="theImage" value="{!$Resource.SMFLogo}"/></div>
+                <div align = "center"><font size="4" color="#16B2AF">Mulyavardhan Executive Dashboard</font></div>
+                
+                <apex:actionfunction name="setValueToProcess" action="{!checkProcessValue}" rerender="form1,actStatusId,talId,outPutId,pieChart1,pieChart2,areaId,talId,distId1,table1,divId,headingTitle,pieChartId,chID,infoId"/>
+                 
+                <apex:actionfunction name="setValueToState" action="{!checkStateValue}" rerender="form1,actStatusId,talId,outPutId,pieChart1,pieChart2,areaId,talId,distId1,table1,divId,headingTitle,pieChartId,chID,infoId"/>
+            
+                <apex:actionfunction name="setValueToDist" action="{!setValueToDist}" rerender="form1,actStatusId,talId,outPutId,pieChart1,pieChart2,areaId,talId,distId,table1,divId,headingTitle,pieChartId,chID,infoId"/>
+               
+                <apex:actionfunction name="setValueToDist1" action="{!setValueToDist1}" rerender="form1,actStatusId,talId,outPutId,pieChart1,pieChart2,areaId,talId1,distId,table1,divId,headingTitle,pieChartId,chID,infoId"/>
+               
+                <apex:actionfunction name="setValueTocluster1" action="{!setValueTocluster}" rerender="form1,actStatusId,talId,outPutId,pieChart1,pieChart2,areaId,talId1,distId,table1,divId,headingTitle,pieChartId,chID,infoId,cltId"/>
+             
+                <apex:actionfunction name="setValueToTal" action="{!checkTalValue}" rerender="form1,actStatusId,talId,outPutId,pieChart1,pieChart2,areaId,talId,distId,table1,divId,headingTitle,pieChartId,chID,infoId"/> 
+
+                <apex:actionfunction name="fetchTraineeData" action="{!fetchTraineeDataFromDatabase}" rerender="form1,actStatusId,talId,outPutId,pieChart1,,pieChart2,table1,divId,headingTitle,pieChartId,chID,infoId"/>
+     
+                <apex:pageBlockSection columns="1" title="Location Criteria">
+                
+                    <apex:selectList label="State" value="{!State}" multiselect="false" size="1" onchange="setValueToState()">
+                        <apex:selectOptions value="{!stateList}"/>
+                    </apex:selectList>
+                    
+                    <apex:selectList label="District" value="{!dist}" multiselect="false" size="1" onchange="setValueToDist1()" id="distId1">
+                        <apex:selectOptions value="{!District}"/>
+                    </apex:selectList>
+                    
+                    <apex:selectList label="Taluka" id="talId1" value="{!tal}" multiselect="false" size="1" onchange="setValueTocluster1()">
+                        <apex:selectOptions value="{!Taluka}"/>
+                    </apex:selectList>
+                    
+                    <apex:selectList label="Cluster" id="cltId" value="{!cluster}" multiselect="false" size="1">
+                        <apex:selectOptions value="{!clusterlist}"/>
+                    </apex:selectList>
+            
+                </apex:pageBlockSection>   
+
+        
+                <apex:pageBlockSection columns="1" title="Process Criteria">
+                
+                    <apex:selectList label="Role" value="{!Process}" multiselect="false" size="1" onchange="setValueToProcess()">
+                        <apex:selectOptions value="{!processList}"/>
+                    </apex:selectList>
+            
+                    <apex:selectList label="Process" value="{!role}" multiselect="false" size="1" onchange="setValueToDist()" id="distId">
+                        <apex:selectOptions value="{!roleList}"/>
+                    </apex:selectList>
+                    
+                    <apex:selectList label="Question" id="talId" value="{!question}" multiselect="false" size="1" onchange="setValueToTal()">
+                        <apex:selectOptions value="{!questionList}"/>
+                    </apex:selectList>
+                    
+                    
+             
+                    <apex:actionStatus id="actStatusId" >
+                        <apex:facet name="start" >
+                        <apex:outputText label="Loading....."/>                 
+                        </apex:facet>
+                    </apex:actionStatus>
+            
+                </apex:pageBlockSection>        
+             
+            </apex:pageBlock>
+            
+        </apex:actionRegion>                   
+
+                  
+        <apex:pageBlock title="{! IF(pieData1.size > 0,'' , '') }" id="pieChartId">
+        
+            <apex:pageBlockSection id="infoId" columns="2" title="{!role}">
+                
+                    <apex:outputLabel >State :  {!State} </apex:outputLabel>   
+                       
+                    <apex:outputLabel >District :  {!NameOfDistrict} </apex:outputLabel>
+                          
+                    <apex:outputLabel > Count of District :  {!countOfDistrict} </apex:outputLabel>
+                       
+                    <apex:outputLabel > Taluka :  {!NameOfTaluka} </apex:outputLabel>
+                       
+                    <apex:outputLabel >Count of Taluka :  {!countOfTaluka} </apex:outputLabel>
+                       
+                    <apex:outputLabel >Total No of Feedback :  {!feedbackCount} </apex:outputLabel>
+                       
+                    <apex:outputLabel >Valid Feedback Count :  {!validafeedbackCount} </apex:outputLabel> 
+                     
+                    <apex:outputLabel >Process :  {!role} </apex:outputLabel>
+                    
+                    <apex:outputLabel >Question :  {!question} </apex:outputLabel>   
+                    
+                    <apex:outputLabel >Caption :  {!caption} </apex:outputLabel>   
+                
+            </apex:pageBlockSection>
+            
+            
+            <apex:pageBlockSection id="chID" columns="1">
+                    <div align="center" draggable="false" >
+                     
+                        <apex:chart height="650" width="650" data="{! IF(pieData1.size > 0, pieData1, '') }" id="pieChart1" >
+                            
+                            <apex:pieSeries dataField="data" labelField="name"> </apex:pieSeries>    
+                            <apex:legend position="right"/>
+                        </apex:chart> 
+                
+                    </div>
+                    
+            </apex:pageBlockSection>
+             
+            <apex:pageBlockSection id="table1"  columns="1">
+            
+                <apex:pageblocktable value="{!feedbackdatalist}" var="cnt" rendered="{!feedbackdatalist != null}" width="100%">
+                    <apex:variable var="rowNo" value="{!0}" />
+                    
+                     <apex:column headerValue="Name" >
+                    {!cnt.name}
+                    </apex:column>
+                    
+                     <apex:column headerValue="Cluster">
+                    {!cnt.cluster}
+                    </apex:column>
+                    
+                    <apex:column headerValue="Taluka">
+                    {!cnt.taluka}
+                    </apex:column>
+                    
+                    <apex:column headerValue="District">
+                    {!cnt.district}
+                    </apex:column>
+                    
+                    <apex:column headerValue="State" >
+                    {!cnt.state}
+                    </apex:column>
+                 
+                    <apex:column headerValue="FeedBackDetail">
+                    {!cnt.answer}
+                    </apex:column>
+                
+                </apex:pageblocktable>
+               
+            </apex:pageBlockSection>
+                
+            <apex:pageBlockSection >
+                 
+                <apex:commandButton value="previous" action="{!previous}" disabled="{!DisablePrevious}" />
+                <apex:commandButton value="next" action="{!next}" disabled="{!DisableNext}"/>
+                
+            </apex:pageBlockSection>
+            
+            
+        
+        </apex:pageBlock>
+        
+    </apex:form>
+    
+</apex:page>
