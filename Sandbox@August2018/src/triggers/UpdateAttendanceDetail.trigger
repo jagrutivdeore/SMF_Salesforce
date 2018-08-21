@@ -63,23 +63,29 @@ trigger UpdateAttendanceDetail on Attendance__c (before update , before insert) 
         }
         
         // swarupa 
-       /* if(attendance.checkInTime__c == null || attendance.checkOutLoc__c == null)
+        if(attendance.checkInTime__c == null && attendance.checkOutTime__c == null)  //checkIn & checkOut blank
+        {
+        attendance.status__c = 'Pending';
+        }
+        else if(attendance.Check_In_Location_Difference__c > 1 && attendance.Check_Out_Location_Difference__c > 1) //checkIn & checkOut location greater then 1km
         {
          attendance.status__c = 'Pending';
-         attendance.Final_Status__c = 'Pending';
-        }*/
+        
+        }
+        
+        
         
         //For NOtification
     //SendNotification.submitdata(attendance.MV_User__c,'Attendance Checkout',attendance.status__c);
-     if(Trigger.isUpdate ) 
+     if(Trigger.isUpdate ) // swarupa
      {
-      if(attendance.Final_Status__c != null && attendance.Final_Status__c != 'Pending')   // swarupa
+      if(attendance.Final_Status__c != null && attendance.Final_Status__c != 'Pending')   //update status 
       {
         attendance.status__c = attendance.Final_Status__c;
       }
       
       
-      attendance.Final_Status__c = attendance.status__c;   
+      attendance.Final_Status__c = null;   
       }
       else
       {
